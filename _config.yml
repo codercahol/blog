@@ -59,27 +59,21 @@ plugins:
 
 author:
   name   : "Leron Perez"
-  avatar : "/assets/images/bio-photo.jpg"
+  #avatar : "/assets/images/bio-photo.jpg"
   bio    : "Graduate student in biophysics interested in eco-evolutionary dynamics, cellular sensing & computation, and biological adaptation more broadly."
   links:
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: mailto:leronperez13_AT_gmail.com
 
-footer:
-  links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
+#footer:
+#  links:
+#    - label: "Twitter"
+#      icon: "fab fa-fw fa-twitter-square"
+#      url: "https://twitter.com/"
+#    - label: "GitHub"
+#      icon: "fab fa-fw fa-github"
+#      url: "https://github.com/"
 
 defaults:
   # _posts
