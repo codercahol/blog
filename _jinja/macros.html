@@ -1,0 +1,10 @@
+{% macro sidenote(tag_name, text, tokens) -%}
+    <label for="{{ text }}" class='margin-toggle sidenote-number'></label><input type='checkbox' id="{{ text }}" class='margin-toggle'/><span class='sidenote'>"{{ text }}" </span>
+{%- endmacro %}
+
+<!-- WIP -->
+{% macro epigraph(tag_name, text, tokens) -%}
+    <div class='epigraph'><blockquote><p>"{{ text[0] }}"</p>
+    <footer>"{{ text[0] }}" <cite>"{{ text[1] }}"</cite> </footer></blockquote></div>
+{%- endmacro %}
+
