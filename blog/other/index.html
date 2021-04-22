@@ -97,11 +97,47 @@
 <![endif]-->
 
 
-    <!-- start custom head snippets -->
+    <!--
+ adapted from Tufte-Jekyll
+    https://github.com/clayh53/tufte-jekyll/blob/master/_includes/head.html
+-->
 
-<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<!-- Google Fonts loaded here depending on setting in _data/options.yml true loads font, blank does not-->
+  
+    <link href='//fonts.googleapis.com/css?family=Lato:400,400italic' rel='stylesheet' type='text/css'>
+  
 
-<!-- end custom head snippets -->
+  <!-- Load up MathJax script if needed ... specify in /_data/options.yml file-->
+  
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: [
+      "MathMenu.js",
+      "MathZoom.js",
+      "AssistiveMML.js",
+      "a11y/accessibility-menu.js"
+    ],
+    jax: ["input/TeX", "output/CommonHTML"],
+    TeX: {
+      extensions: [
+        "AMSmath.js",
+        "AMSsymbols.js",
+        "noErrors.js",
+        "noUndefined.js",
+      ]
+    }
+  });
+</script>
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+ <!--   <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+  
+
+<link rel="stylesheet" type="text/css" href="/css/tufte.css">
+<!-- <link rel="stylesheet" type="text/css" href="/css/print.css" media="print"> -->
 
   </head>
 
@@ -311,14 +347,14 @@
 
 <p>Additionally, identifying phenomena by their lack of a trait impoverishes the discussion by omitting or marginalizing the actual details that distinguish that phenomena.</p>
 
-<h2 id="proposed-responses">Proposed responses</h2>
+<h1 id="proposed-responses">Proposed responses</h1>
 
 <h3 id="its-convenient">It's Convenient</h3>
 
-<p>Historically, all of these <em>non</em> 's were introduced because they represented more (mathematically) complex phenomena: Newtonian fluids, Euclidean surfaces, linearly elastic materials, and equilibrium systems were all well-behaved <a href="https://en.wikipedia.org/wiki/Spherical_cow">"spherical cows"</a>. Due to their (apparently) greater tractability, the "spherical cows" received a lot of scientific attention and as a result, many new interesting phenomena were observed occurring in systems containing strictly "spherical cows". As a result, there is a significant disconnect between the topics that are being (and have been) studied and those that are common in reality.</p>
+<p>Historically, all of these <em>non</em>'s were introduced because they represented more (mathematically) complex phenomena: Newtonian fluids, Euclidean surfaces, linearly elastic materials, and equilibrium systems were all well-behaved <a href="https://en.wikipedia.org/wiki/Spherical_cow">"spherical cows"</a>. Due to their (apparently) greater tractability, the "spherical cows" received a lot of scientific attention and as a result, many new interesting phenomena were observed occurring in systems containing strictly "spherical cows". As a result, there is a significant disconnect between the topics that are being (and have been) studied and those that are common in reality.</p>
 
-<p>None of this is to say that studying "spherical cows" first was wrong or bad. In fact, in many cases, it was not possible to seriously attempt studying the more complicated phenomena described by <em>non</em> 's until a more powerful framework was built by generalizing the understanding attained by studying simpler systems.
-The historical division of these topics into tractable and intractable by semantic negation provided a map that described the scientific landscape. By claiming convenience is responsible for the continuing use of <em>non</em> 's in our terminology, we claim that we have never escaped this original conceptual map, (perhaps because of social or linguistic inertia).</p>
+<p>None of this is to say that studying "spherical cows" first was wrong or bad. In fact, in many cases, it was not possible to seriously attempt studying the more complicated phenomena described by <em>non</em>'s until a more powerful framework was built by generalizing the understanding attained by studying simpler systems.
+The historical division of these topics into tractable and intractable by semantic negation provided a map that described the scientific landscape. By claiming convenience is responsible for the continuing use of <em>non</em>'s in our terminology, we claim that we have never escaped this original conceptual map, (perhaps because of social or linguistic inertia).</p>
 
 <h3 id="its-part-of-science">It's Part of Science</h3>
 
