@@ -29,7 +29,7 @@ nav_exclude: true
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
-  width: 80%;
+  width: 75%;
   font-family: $body-font;
   background-color: $bg-color;
   color: $text-color;
@@ -134,7 +134,7 @@ article .page__content h3, article h3 { font-style: italic;
              line-height: 1.08888888888889; }
 
 
-.page__content p, article ol, article ul, .page__content a { font-size: 1.2rem; }
+.page__content p, article ol, article ul { font-size: 1.2rem; }
 
 .page__content p, .page__content li { line-height: 2rem;
         margin-top: 1.4rem;
@@ -275,8 +275,8 @@ article img { max-width: 100%; }
 
 article .sidenote, article .marginnote { float: right;
                          clear: right;
-                         margin-right: -27%;
-                         width: 20%;
+                         margin-right: -35%;
+                         width: 30%;
                          margin-top: 0;
                          margin-bottom: 1.96rem;
                          font-size: 0.9rem;
