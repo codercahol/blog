@@ -4,4 +4,10 @@ var store = [{
         "tags": ["science"],
         "url": "/blog/other/",
         "teaser": null
+      },{
+        "title": "Limits to Robustness",
+        "excerpt":"Robustness without context is meaningless. Nonetheless, many of the amenities and privileges we enjoy as participants in modern societies are built upon the foundations of robust social and physical infrastructure; our hospitals and houses of representatives are able to adapt to significant disturbances and (mostly) continue functioning. Clearly, we understand...","categories": ["blog"],
+        "tags": ["climate change"],
+        "url": "/blog/robustness/",
+        "teaser": null
       }]

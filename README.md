@@ -5,5 +5,5 @@
 - running `python compile.py` will convert these to static markdown + html pages and store
 
 - get rid of tags/categories?
-- deal w/huge margin on the left
-- deal w/shitty formatting on about page
+- add collapsable tangential notes
+- fix sidenote numberings

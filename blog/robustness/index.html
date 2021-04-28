@@ -1,0 +1,553 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.22.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Limits to Robustness - Leron’s Research Blog</title>
+<meta name="description" content="Robustness without context is meaningless. Nonetheless, many of the amenities and privileges we enjoy as participants in modern societies are built upon the foundations of robust social and physical infrastructure; our hospitals and houses of representatives are able to adapt to significant disturbances and (mostly) continue functioning. Clearly, we understand robustness enough to build resilient infrastructure, so maybe robustness is &quot;solved&quot; and we can move on to think about something else.">
+
+
+  <meta name="author" content="Leron Perez">
+  
+  <meta property="article:author" content="Leron Perez">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Leron's Research Blog">
+<meta property="og:title" content="Limits to Robustness">
+<meta property="og:url" content="/blog/robustness/">
+
+
+  <meta property="og:description" content="Robustness without context is meaningless. Nonetheless, many of the amenities and privileges we enjoy as participants in modern societies are built upon the foundations of robust social and physical infrastructure; our hospitals and houses of representatives are able to adapt to significant disturbances and (mostly) continue functioning. Clearly, we understand robustness enough to build resilient infrastructure, so maybe robustness is &quot;solved&quot; and we can move on to think about something else.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-04-26T00:00:00-07:00">
+
+
+
+
+
+
+<link rel="canonical" href="/blog/robustness/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Leron's Research Blog Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!--
+ adapted from Tufte-Jekyll
+    https://github.com/clayh53/tufte-jekyll/blob/master/_includes/head.html
+-->
+
+<!-- Google Fonts loaded here depending on setting in _data/options.yml true loads font, blank does not-->
+  
+    <link href='//fonts.googleapis.com/css?family=Lato:400,400italic' rel='stylesheet' type='text/css'>
+  
+
+  <!-- Load up MathJax script if needed ... specify in /_data/options.yml file-->
+  
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: [
+      "MathMenu.js",
+      "MathZoom.js",
+      "AssistiveMML.js",
+      "a11y/accessibility-menu.js"
+    ],
+    jax: ["input/TeX", "output/CommonHTML"],
+    TeX: {
+      extensions: [
+        "AMSmath.js",
+        "AMSsymbols.js",
+        "noErrors.js",
+        "noUndefined.js",
+      ]
+    }
+  });
+</script>
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+ <!--   <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+  
+
+<link rel="stylesheet" type="text/css" href="/css/tufte.css">
+<!-- <link rel="stylesheet" type="text/css" href="/css/print.css" media="print"> -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Leron's Research Blog
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/posts/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Leron Perez</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Graduate student in biophysics interested in eco-evolutionary dynamics, cellular sensing &amp; computation, and biological adaptation more broadly.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:lerons.blog_AT_gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://twitter.com/leron_perez" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Limits to Robustness">
+    <meta itemprop="description" content="Robustness without context is meaningless. Nonetheless, many of the amenities and privileges we enjoy as participants in modern societies are built upon the foundations of robust social and physical infrastructure; our hospitals and houses of representatives are able to adapt to significant disturbances and (mostly) continue functioning. Clearly, we understand robustness enough to build resilient infrastructure, so maybe robustness is &quot;solved&quot; and we can move on to think about something else.">
+    <meta itemprop="datePublished" content="2021-04-26T00:00:00-07:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Limits to Robustness
+</h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          7 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>Robustness without context is meaningless. Nonetheless, many of the amenities and privileges we enjoy as participants in modern societies are built upon the foundations of robust social and physical infrastructure; our <a href="https://en.wikipedia.org/wiki/COVID-19_pandemic">hospitals</a> and <a href="https://en.wikipedia.org/wiki/2021_storming_of_the_United_States_Capitol">houses of representatives</a> are able to adapt to significant disturbances and (mostly) continue functioning. Clearly, we understand robustness enough to build resilient infrastructure, so maybe robustness is "solved" and we can move on to think about something else.</p>
+
+<p>Unfortunately, these conclusions are misleading for a couple reasons: First, in both the 2021 Capitol riot and the COVID-19 pandemic, we came uncomfortably close to collapse – if there had been a coup or if we didn't have any way to quickly design, manufacture, and distribute vaccines, we'd be having a very different conversation about robustness. Second, our knowledge is historical, based on past experiences. When we ground our predictions and preparations in outdated estimates, we're setting ourselves up for nasty surprises. Climate change is shifting the ground underneath our feet, with wide-ranging effects, and continuing to plan the future based on old data is dangerous and foolish.</p>
+
+<p>That was the <a href="https://dictionary.cambridge.org/dictionary/english/tldr">TLDR</a>, but in the rest of this post, I'm going to discuss examples of robustness and then how our changing environment is undermining “robustness” that relies on historical data.</p>
+
+<h3 id="how-do-we-ensure-robustness">How Do We Ensure Robustness?</h3>
+
+<p>To better understand how we usually design robustness, we'll start by looking at computers. Computers are used for critical systems in healthcare, energy, financial, and military institutions, so by examining how we make computer systems robust, we can learn about how robustness is ensured.</p>
+
+<p>So, how do we ensure robustness in computer systems? Failures in a complex assembly like a computer are the results of random processes: variations in the quality of the components, the external stresses they face, and the interactions with other internal components all contribute. Making a system more robust typically consists of a few approaches: building redundancy for when failures inevitably occur, minimizing the risk of failure, and minimizing the cost of (quickly) repairing the system. Different scenarios present different constraints and different understandings of what is robust: there isn't really any way to fix computers in space, so the computers that NASA sends into space probably aren’t optimized to minimize the cost of repair. However, they do have <a href="https://mars.nasa.gov/mars2020/spacecraft/rover/brains/">multiple, redundant central computers and are specially treated to be more radiation resistant</a><label for="six" class="margin-toggle sidenote-number"></label><input type="checkbox" id="six" class="margin-toggle" /><span class="sidenote">Without protection from the Earth's magnetic field, radiation significantly shortens a computer's lifespan in space.</span>. Digitized financial systems, housed in server farms on Earth, benefit from being fairly easily repairable due to the highly-developed<label for="one" class="margin-toggle sidenote-number"></label><input type="checkbox" id="one" class="margin-toggle" /><span class="sidenote">But <a href="https://www.nytimes.com/2021/04/15/technology/computer-chip-semiconductor-shortage.html">not that robust</a></span> computer industry. Redundancy is built in by running critical processes across distributed networks that can accommodate the failures of individual computers. Furthermore, the computers are kept in isolated and climate-controlled warehouses that insulate them from external disturbances.</p>
+
+<p>Qualitatively, both of NASA's rovers and bank's computer systems are quite robust. But with robustness, context is king. A NASA rover dropped into the ocean would fare poorly. Given that robustness obviously has its limitations, how robust can our creations be?</p>
+
+<h3 id="paragons-of-robustness">Paragons of Robustness</h3>
+
+<p>The robustness of our creations often shows up in their longevity, and there are few that last for many centuries and continue functioning. Cities, and their longevity, are triumphs of robustness. The robustness of cities is due to the great redundancy they are granted by the many social and physical structures that comprise them and their repairability<label for="eleven" class="margin-toggle sidenote-number"></label><input type="checkbox" id="eleven" class="margin-toggle" /><span class="sidenote">See <a href="https://www.reddit.com/r/AskHistorians/comments/7y7d0k/how_do_cities_die/">here</a> for an interesting discussion</span><sup>,</sup><label for="eleventy" class="margin-toggle sidenote-number"></label><input type="checkbox" id="eleventy" class="margin-toggle" /><span class="sidenote">Notably, there isn’t really much that cities can do to protect themselves, (i.e. from natural disasters or wars.)</span>. Even when cities "die" and shrink their populations by orders of magnitude they very frequently recover. London after the fall of the Roman Empire was almost deserted, and is now a thriving global metropolis. The 1906 San Francisco Earthquake, 1871 Chicago Fire, and the bombings of Hiroshima, Dresden and Warsaw are all examples of colossal catastrophes that each of the cities recovered from. It takes more than a single localized disturbance to end a city. As cited in the Reddit post linked above, "Burn down your cities and leave our farms, and your cities will spring up again as if by magic. But destroy our farms and the grass will grow in the streets of every city in the country."<label for="thirteen" class="margin-toggle sidenote-number"></label><input type="checkbox" id="thirteen" class="margin-toggle" /><span class="sidenote">Originally from William J Bryant's <a href="http://historymatters.gmu.edu/d/5354/">'Cross of Gold' speech</a></span> The scale of development that humanity has undertaken over its history ensures that when even when most cities are leveled, the surrounding infrastructure enables them to spring back.</p>
+
+<h3 id="hidden-assumptions">Hidden Assumptions</h3>
+
+<p>Obscured within the previous discussions of cities and computers are assumptions of normality. Building something that is impervious to everything is impossible, because there is always an unknown event that can overwhelm our best efforts to engineer robustness. So in the process of engineering robustness we reason about how probable an event is. For example, NASA's rover <em>probably</em> won't fly off Mars into the ocean on Earth, so while a rover's durability in the ocean represents a real limit on its robustness, we (very reasonably) assume that we don't need to worry about how waterproof it is or how resilient it is to corrosion by salt water. These assumptions are based on physical laws, so unless the laws of gravity change or a meteorite strikes Mars flinging ejecta in the direction of Earth<label for="three" class="margin-toggle sidenote-number"></label><input type="checkbox" id="three" class="margin-toggle" /><span class="sidenote">If either of these things happen, we have much bigger problems than the robustness of a rover</span>, we don’t need to worry about the Mars rover, which is intended to stay on Mars, finding itself in the ocean on Earth.</p>
+
+<p>However, many other less ironclad assumptions of normality are littered throughout the social and physical infrastructure of our societies. The COVID-19 pandemic has violated many of these assumptions. Many relatively harmless examples of these assumptions being violated were experienced in supermarkets. Shortages of toilet paper resulted from violated assumptions about normal variations in the rate of consumption. Toilet paper is <em>typically</em> consumed at a very stable per capita rate, especially when averaged over large populations. However, panic generated by the pandemic prompted extreme stockpiling which, as we all likely experienced, led to widespread shortages. Toilet paper producers simply weren’t prepared for the demand to spike like it did, and as a result, supply chains took some time to recover. Fortunately, toilet paper producers had made a pretty good assumption; the true, underlying rate of toilet paper use<label for="four" class="margin-toggle sidenote-number"></label><input type="checkbox" id="four" class="margin-toggle" /><span class="sidenote">Meaning, how often people were actually wiping their butts</span> did not change, people were simply stockpiling, creating an apparent crisis, while there was still in fact enough toilet paper for all.</p>
+
+<p>Unfortunately, the violation of other assumptions led to deaths. Hospitals and medical suppliers can't afford to keep an infinite amount of medical supplies on hand, so they make inventory decisions based on disease statistics, with some allowance for variations. With the onset of a pandemic, their predictions became totally irrelevant and as a result contributed to the death count due to shortages of ventilators and other medical equipment. The eventual pandemic was certainly <a href="https://www.wsj.com/articles/SB124121965740478983">not a surprise</a><label for="five" class="margin-toggle sidenote-number"></label><input type="checkbox" id="five" class="margin-toggle" /><span class="sidenote">Note that this article is from 2009.</span>, and though robustness is difficult precisely because we can’t foresee exactly what challenges we are yet to face, we can certainly do a much better job preparing a rapid response to emerging infectious diseases, such as<label for="two" class="margin-toggle sidenote-number"></label><input type="checkbox" id="two" class="margin-toggle" /><span class="sidenote">But <em>certainly</em> not limited to!</span> designing more scalable medical supply chains.</p>
+
+<p>At a bigger picture level, the sub-optimal pandemic response was likely facilitated by the fact that human populations have become <em>increasingly</em> interconnected. The emphasis here is on the rate of change; old precedents for the appropriate magnitude and speed of response to pandemics are invalidated as the conditions change.</p>
+
+<h3 id="robustness-in-a-changing-world">Robustness In A Changing World</h3>
+
+<p>Nowhere are the changes to our environment more universal than those caused by climate change. Cities, once the pinnacles of robustness in an uncertain world, are threatened in endless ways. Cape Town is one of countless examples<label for="seven" class="margin-toggle sidenote-number"></label><input type="checkbox" id="seven" class="margin-toggle" /><span class="sidenote">In case you've been living under a rock, we are facing <a href="doi.org/10.1126/sciadv.1603322">rising temperatures</a>, <a href="https://www.nytimes.com/2017/08/09/climate/the-sea-level-did-in-fact-rise-faster-in-the-southeast-us.html">rising sea-levels</a>, <a href="https://www.npr.org/2020/09/13/912109183/california-camp-fire-survivors-face-the-horror-all-over-again-in-2020">wildfires</a>, collapsing <a href="https://www.growbyginkgo.com/2020/06/23/the-nature-of-nature/">forest</a> and <a href="https://news.ucsc.edu/2021/03/kelp-forests-norcal.html">aqu</a><a href="https://www.theguardian.com/environment/2019/apr/04/great-barrier-reef-suffers-89-collapse-in-new-coral-after-bleaching-events">atic</a> <a href="https://www.seattletimes.com/business/salmon-have-shrunk-so-much-that-whole-foods-redid-its-guidelines/">ecosystems</a>, among other things.</span> of cities facing existential threats due to climate change. In 2018, Cape Town nearly <a href="http://www.capetowndrought.com/">ran out of water</a>. While climate change continues, we can expect these threats to only increase in severity.</p>
+
+<p>Building robustness into our society means abandoning past notions of what is normal and preparing for the future. But in many regions in the US, we're still investing more resources into developing climate-change threatened<label for="eight" class="margin-toggle sidenote-number"></label><input type="checkbox" id="eight" class="margin-toggle" /><span class="sidenote">In some cases, threatened = guaranteed to be underwater in a decade or so.</span> buildings<label for="nine" class="margin-toggle sidenote-number"></label><input type="checkbox" id="nine" class="margin-toggle" /><span class="sidenote">For example, <a href="https://www.bloomberg.com/news/features/2018-03-01/why-is-california-rebuilding-in-fire-country-because-you-re-paying-for-it">California</a> and <a href="https://www.theguardian.com/environment/2019/feb/15/florida-climate-change-coastal-real-estate-rising-seas">Florida</a></span>, instead of future-proofing ourselves, our cities and our supply chains.</p>
+
+<p>The point of discussing robustness in computers and cities was to illustrate that we are really good at engineering robustness when we understand the context we are designing for. The trouble with climate change is that the conditions are changing underneath our feet so it is hard to build an intuition for what is normal without help from experts. We, the scientific community, need to do a better job of communicating the environmental conditions that we find ourselves in. However, the burden doesn't lie solely with scientists. It also lies with insurance companies, (housing) developers, and governmental regulators to more faithfully depict the risks and protect people against them.</p>
+
+<p>We face a challenge to upgrade our decision-making frameworks. We, as humans, have been successful at creating robust infrastructure in mostly static environments. Now we are confronted with a changing environment<label for="ten" class="margin-toggle sidenote-number"></label><input type="checkbox" id="ten" class="margin-toggle" /><span class="sidenote">Through our own faults.</span> and must update our practices to account for this paradigm shift. Otherwise, even systems designed to be robust will constantly fail.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#climate-change" class="page__taxonomy-item" rel="tag">climate change</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#blog" class="page__taxonomy-item" rel="tag">blog</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-04-26T00:00:00-07:00">April 26, 2021</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Limits+to+Robustness%20%2Fblog%2Frobustness%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=%2Fblog%2Frobustness%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=%2Fblog%2Frobustness%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/blog/other/" class="pagination--pager" title="A Vignette of Scientific Other
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/blog/other/" rel="permalink">A Vignette of Scientific Other
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Our experienced reality tends to color outside of the lines set by science. As soon as you step outside, shoes crunching on gravel, you are surrounded by the...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Leron's Research Blog. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>
