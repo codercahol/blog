@@ -11,9 +11,6 @@ nav_exclude: true
 /* The README.md will show you how to set up your site along with other goodies
 /*****************************************************************************/
 
-// TODO: restrict this css to apply only to <article> tags bc that is where the post is printed
-//  (see single.html)
-
 // Imports to create final
 
 @import "../_sass/fonts";
@@ -34,7 +31,6 @@ nav_exclude: true
   background-color: $bg-color;
   color: $text-color;
   max-width: 1400px;
-  // counter-reset: sidenote-counter;
 }
 
 /* clearfix hack after Cederholm (group class name) */
@@ -289,20 +285,20 @@ article li .sidenote, article li .marginnote{ margin-right: -80%; } //added to a
 
 article blockquote .sidenote, article blockquote .marginnote { margin-right: -79% }
 
-article .sidenote-number { counter-increment: sidenote-counter; }
+.page__content .sidenote-number { counter-increment: sidenote-counter; }
 
-article .sidenote-number:after, article .sidenote:before { content: counter(sidenote-counter) " ";
+.page__content .sidenote-number:after, .page__content .sidenote:before { content: counter(sidenote-counter) " ";
                                            font-family: et-bembo-roman-old-style;
                                            color: $contrast-color; //added color
                                            position: relative;
                                            vertical-align: baseline; }
 
-article .sidenote-number:after { content: counter(sidenote-counter);
+.page__content .sidenote-number:after { content: counter(sidenote-counter);
                          font-size: 1rem;
                          top: -0.5rem;
                          left: 0.1rem; }
 
-article .sidenote:before { content: counter(sidenote-counter) ".\000a0"; // this is unicode for a non-breaking space
+.page__content .sidenote:before { content: counter(sidenote-counter) ".\000a0"; // this is unicode for a non-breaking space
                    color: $contrast-color;
                    top: 0rem; } //removed superscripting for numerical reference in sidenote
 
