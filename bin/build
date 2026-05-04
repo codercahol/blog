@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+set -eu
+
+BUNDLER_VERSION="2.3.27"
+BUNDLE_USER_HOME="${BUNDLE_USER_HOME:-$PWD/.bundle}"
+export BUNDLE_USER_HOME
+USER_BUNDLE="$(ruby -e 'require "rubygems"; print File.join(Gem.user_dir, "bin", "bundle")')"
+
+if command -v bundle >/dev/null 2>&1; then
+  BUNDLE_BIN="bundle"
+elif [ -x "$USER_BUNDLE" ]; then
+  BUNDLE_BIN="$USER_BUNDLE"
+else
+  echo "Bundler ${BUNDLER_VERSION} is not installed."
+  echo "Run: gem install --user-install bundler:${BUNDLER_VERSION}"
+  exit 1
+fi
+
+BUNDLE_PATH="${BUNDLE_PATH:-vendor/bundle}" exec "$BUNDLE_BIN" "_${BUNDLER_VERSION}_" exec jekyll build "$@"

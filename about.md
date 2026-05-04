@@ -2,8 +2,28 @@
 layout: single
 title: About
 permalink: /about/
+author_profile: false
 ---
 
-I am a first year graduate student in biophysics. I am fascinated by eco-evolutionary dynamics, phenotypic plasticity, cellular sensing, and many other things that I hope to touch upon as I begin documenting my thoughts. I graduated in March 2020 from the University of Chicago. During my time there I worked with the [Gilbert](https://gilbertlab.com/) (now at UCSD) and [Murugan](http://muruganlab.uchicago.edu/) labs.
+<div class="world-index about-page">
+  <p class="lede">I am a builder, scientist, and technical generalist working on the bottlenecks between laboratory science and scalable manufacturing.</p>
 
-I've tremendously enjoyed reading other people's research blogs, so this blog is my effort to contribute to the rich community of science-bloggers and share what I'm thinking about and what doing science looks and feels like to me.
+  <p>My work spans biology, instrumentation, process systems, modeling, materials, and hands-on fabrication. I am especially interested in the systems that make physical technologies easier to measure, validate, scale, and manufacture.</p>
+
+  <p>I trained in biophysics and have worked across microbial physiology, bioreactors, spectroscopy, automation, and process-oriented measurement. The common thread is translation: taking fragile lab observations and turning them into systems that can survive contact with real constraints.</p>
+
+  <p>The tinkering side matters. Repairs, fixtures, rigs, and small builds are part of how I think. They keep the broader manufacturing ambition grounded in real materials, failure modes, and practical tradeoffs.</p>
+
+  <section class="section-block" aria-labelledby="contact-title">
+    <div class="section-heading">
+      <p class="eyebrow">Links</p>
+      <h2 id="contact-title">Contact and profiles</h2>
+    </div>
+    <div class="contact-grid">
+      <a href="mailto:lerons.blog@gmail.com">Email</a>
+      <a href="https://github.com/codercahol">GitHub</a>
+      <a href="https://www.linkedin.com/in/leronperez/">LinkedIn</a>
+      <a href="https://twitter.com/leron_perez">Twitter</a>
+    </div>
+  </section>
+</div>

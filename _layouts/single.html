@@ -28,6 +28,14 @@ layout: default
         <header>
           {% if page.title %}<h1 id="page-title" class="page__title" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>{% endif %}
           {% include page__meta.html %}
+          {% if page.date or page.last_modified_at %}
+            <p class="page__updated">
+              Last updated
+              <time datetime="{{ page.last_modified_at | default: page.date | date_to_xmlschema }}">
+                {{ page.last_modified_at | default: page.date | date: "%B %-d, %Y" }}
+              </time>
+            </p>
+          {% endif %}
         </header>
       {% endunless %}
 
@@ -43,14 +51,6 @@ layout: default
         {{ content }}
         {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
-
-      <footer class="page__meta">
-        {% if site.data.ui-text[site.locale].meta_label %}
-          <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
-        {% endif %}
-        {% include page__taxonomy.html %}
-        {% include page__date.html %}
-      </footer>
 
       {% if page.share %}{% include social-share.html %}{% endif %}
 

@@ -1,0 +1,17 @@
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+      <a class="site-nav__title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      <div class="site-nav__links">
+        {% for link in site.data.navigation.main %}
+          {% if link.url contains '://' %}
+            {% assign link_url = link.url %}
+          {% else %}
+            {% assign link_url = link.url | relative_url %}
+          {% endif %}
+          <a href="{{ link_url }}">{{ link.title }}</a>
+        {% endfor %}
+      </div>
+    </nav>
+  </div>
+</div>

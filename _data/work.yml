@@ -1,0 +1,83 @@
+- title: "Bioreactor gas-control / oxygen-inference system"
+  slug: "bioreactor-gas-control-oxygen-inference"
+  category: "Bioprocesses and scale-up"
+  summary: "A hardware/software system attached to bioreactors to characterize mass transport and infer dynamic oxygen consumption, making scale-down reactors more informative."
+  status: "Research system"
+  year: "PhD"
+  artifact: "Gas control, calibration, soft sensing"
+  tags:
+    - bioreactors
+    - process control
+    - sensing
+  image:
+  caption:
+
+- title: "Reverse-engineered spectrometer for closed-loop polymer synthesis"
+  slug: "spectrometer-closed-loop-polymer-synthesis"
+  category: "Instrumentation and control"
+  summary: "An older spectrometer turned into a programmable measurement/control component for a continuous polyurethane reactor."
+  status: "Instrument integration"
+  year: "PhD"
+  artifact: "Spectroscopy, controls, reactor feedback"
+  tags:
+    - spectroscopy
+    - instrumentation
+    - polymers
+  image:
+  caption:
+
+- title: "High-throughput microalgae measurement platform"
+  slug: "high-throughput-microalgae-platform"
+  category: "Models tied to experiments"
+  summary: "An automated measurement and computer-vision workflow for quantifying photosynthetic performance at scale."
+  status: "Measurement platform"
+  year: "Research"
+  artifact: "Automation, image analysis, physiology"
+  tags:
+    - microalgae
+    - computer vision
+    - automation
+  image:
+  caption:
+
+- title: "Microbial adaptation and physiology"
+  slug: "microbial-adaptation-physiology"
+  category: "Models tied to experiments"
+  summary: "Theory and data work on how microbes allocate resources and respond to fluctuating environments."
+  status: "Research thread"
+  year: "Research"
+  artifact: "Models tied to biological measurements"
+  tags:
+    - microbial physiology
+    - adaptation
+    - modeling
+  image:
+  caption:
+
+- title: "Separations / process passport / scale-up evidence"
+  slug: "separations-process-passport-scale-up"
+  category: "Programmable materials and manufacturing"
+  summary: "A broader programmatic effort around standards, scale-up evidence, and translational bottlenecks that keep promising processes from becoming infrastructure."
+  status: "Program idea"
+  year: "Current"
+  artifact: "Manufacturing evidence, validation, standards"
+  tags:
+    - separations
+    - scale-up
+    - manufacturing
+  image:
+  caption:
+
+- title: "Tinkering, fabrication, and side builds"
+  slug: "tinkering-fabrication-side-builds"
+  category: "Tinkering and side builds"
+  summary: "Small physical builds, repairs, fixtures, and shop projects that show practical engineering instinct and comfort around real materials."
+  status: "Ongoing"
+  year: "Ongoing"
+  artifact: "Fabrication, repairs, rigs"
+  tags:
+    - fabrication
+    - hardware
+    - making
+  image:
+  caption:

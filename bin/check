@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+set -eu
+
+git diff --check
+"$(dirname "$0")/build"

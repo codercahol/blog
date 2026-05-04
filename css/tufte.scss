@@ -1,650 +1,911 @@
 ---
 # this ensures Jekyll reads the file to be transformed into CSS later
-# only Main files contain this front matter, not partials.
 nav_exclude: true
 ---
-/*****************************************************************************/
-/*
-/* Tufte Jekyll blog theme
-/* Based on Tufte CSS by Dave Liepmann ( https://github.com/edwardtufte/tufte-css )
-/*
-/* The README.md will show you how to set up your site along with other goodies
-/*****************************************************************************/
-
-// Imports to create final
 
 @import "../_sass/fonts";
 @import "../_sass/settings";
 @import "../_sass/syntax-highlighting";
 
-// Global Resets
-//
-.page__content * {
-  margin: 0;
-  padding: 0;
-  text-align: baseline;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  height: 100%;
-  width: 75%;
-  font-family: $body-font;
-  background-color: $bg-color;
-  color: $text-color;
-  max-width: 1400px;
+$site-bg: #f6f0e6;
+$paper: #fffaf0;
+$paper-soft: #f9f3e9;
+$ink: #171612;
+$muted: #696358;
+$rule: #d9cdbb;
+$rule-strong: #9c8970;
+$accent: #8d3f1f;
+$accent-dark: #5f2918;
+$industrial: #2f5f5b;
+$serif: ETbook, Georgia, "Times New Roman", serif;
+$sans: "Gill Sans", "Gill Sans MT", "Gotham Narrow", Lato, Calibri, sans-serif;
+$mono: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+
+/* Base */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-/* clearfix hack after Cederholm (group class name) */
-.page__content .group:after {
-  content: "";
-  display: table;
-  clear: both;
+html {
+  background: $site-bg;
 }
 
-// First significant deviation from CSS on tufte.css site - variable font size as browser width expands or contracts
-//html { font-size: 15px; }
-
-@media screen and (min-width: 800px){article html{ font-size: 12px;} }
-
-@media screen and (min-width: 900px){article html{ font-size: 13px;} }
-
-@media screen and (min-width: 1000px){article html{ font-size: 14px;} }
-
-@media screen and (min-width: 1100px){article html{ font-size: 15px; } }
-
-@media screen and (min-width: 1200px){article html{ font-size: 16px; } }
-
-//@media screen and (min-width: 1300px){article html{ font-size: 17px; } }
-
-// Mathjax fonts need TLC
-article .mjx-math{
-  font-size: 1.3rem;
+body {
+  background: $site-bg;
+  color: $ink;
+  font-family: $serif;
+  text-rendering: optimizeLegibility;
 }
-// sets link style according to values in _settings.scss
+
+#main {
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: min(100%, 1180px);
+}
+
+.initial-content {
+  overflow-x: clip;
+}
+
+.page {
+  float: none;
+  padding-right: 0;
+  width: 100%;
+}
+
+.page__inner-wrap {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1060px;
+}
+
+.page__content {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1060px;
+  min-width: 0;
+  width: 100%;
+}
+
+.page__content {
+  color: $ink;
+  font-family: $serif;
+  font-size: 1.08rem;
+  line-height: 1.72;
+  counter-reset: sidenote-counter;
+}
+
+.page__content > p,
+.page__content > ul,
+.page__content > ol,
+.page__content > blockquote,
+.page__content > table,
+.page__content > .highlighter-rouge,
+.page__content > div.highlight {
+  max-width: 44rem;
+}
+
+.page__content p,
+.page__content li {
+  font-size: 1.08rem;
+  line-height: 1.72;
+}
+
+.page__content h1,
+.page__content h2,
+.page__content h3,
+.page__content h4 {
+  color: $ink;
+  font-family: $serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.page__content h1 {
+  font-size: clamp(2.2rem, 6vw, 4.8rem);
+  line-height: 0.95;
+  margin: 0 0 1.25rem;
+}
+
+.page__content h2 {
+  font-size: clamp(1.55rem, 3vw, 2.35rem);
+  line-height: 1.05;
+  margin-top: 2.6rem;
+}
+
+.page__content h3 {
+  font-size: 1.25rem;
+  line-height: 1.2;
+  margin-top: 1.25rem;
+}
+
 .page__content a {
-  color: $contrast-color;
+  color: $accent-dark;
+  text-decoration-color: rgba($accent, 0.45);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
+.page__content a:hover {
+  color: $accent;
+  text-decoration-color: $accent;
+}
+
+.page__content a[rel="permalink"],
+.page__content .header-link,
+.page__content .heading-anchor {
+  font-size: 0.8em;
+  opacity: 0.35;
   text-decoration: none;
 }
 
-.page__content p > a, .page__content cite > a, .page__content span > a { @if $link-style == underline
-    {
-      color: $text-color;
-      text-decoration: underline;
-      /*
-      background: -webkit-linear-gradient($bg-color, $bg-color), -webkit-linear-gradient($bg-color, $bg-color), -webkit-linear-gradient(currentColor, currentColor);
-      background: linear-gradient($bg-color, $bg-color), linear-gradient($bg-color, $bg-color), linear-gradient(currentColor, currentColor);
-      -webkit-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
-      -moz-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
-      background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
-      background-repeat: no-repeat, no-repeat, repeat-x;
-      text-shadow: 0.03em 0 $bg-color, -0.03em 0 $bg-color, 0 0.03em $bg-color, 0 -0.03em $bg-color, 0.06em 0 $bg-color, -0.06em 0 $bg-color, 0.09em 0 $bg-color, -0.09em 0 $bg-color, 0.12em 0 $bg-color, -0.12em 0 $bg-color, 0.15em 0 $bg-color, -0.15em 0 $bg-color;
-      background-position: 0% 93%, 100% 93%, 0% 90%;
-       */
-    }
-    @else
-    {
-      color: $contrast-color;
-      text-decoration: none;
-    }
-  }
-
-.page__content p > a:hover, .page__content cite > a:hover, .page__content span > a:hover { @if $link-style == underline
-    {
-      color: $contrast-color;
-      text-decoration: underline;
-    }
-  }
-
-// --------- Typography stuff -----------//
-// added rational line height and margins ala http://webtypography.net/intro/
-
-article .page__content h1, article h1 { font-weight: 400;
-     margin-top: 3.2rem;
-     margin-bottom: 1.568rem;
-     font-size: 2.5rem;
-     line-height: 2.75rem; }
-
-article .page__content h2, article h2 { font-style: italic;
-     font-weight: 400;
-     margin-top: 2.5rem;
-     margin-bottom: 0;
-     font-size: 2.1rem;
-     line-height: 0.933333333333333; }
-
-article .page__content h3, article h3 { font-style: italic;
-     font-weight: 400;
-     font-size: 1.8rem;
-     margin-top: 2.2rem;
-     margin-bottom: 0;
-     line-height: 1.08888888888889; }
-
-// for header permalinks
-.page__content .fas { display: inline; font-family: "Font Awesome 5 Free"; }
-
-// ET says a need for more than 3 levels of headings is the sign of a diseased mind
-
-.page__content p .subtitle { font-style: italic;
-             margin-top: 2.1777777777777778rem;
-             margin-bottom: 2.1777777777777778rem;
-             font-size: 1.8rem;
-             display: block;
-             line-height: 1.08888888888889; }
-
-
-.page__content p, article ol, article ul { font-size: 1.2rem; }
-
-.page__content p, .page__content li { line-height: 2rem;
-        margin-top: 1.4rem;
-        vertical-align: baseline; }
-
-/* Chapter Epigraphs */
-article div.epigraph { margin: 3.5636rem 0; }
-
-article div.epigraph > blockquote { margin-top: 3rem;
-                            margin-bottom: 3rem;
-                             }
-
-article div.epigraph > blockquote, article div.epigraph > blockquote > p { font-style: italic; }
-
-article div.epigraph > blockquote > footer {  font-style: normal;
-                                      width: 45%;
-                                      padding-left: 2.5%;
-                                      padding-right: 2.5%;
-                                      padding-top: 0;
-                                      margin-top: 0.4455rem;
-                                      margin-bottom: 3.1182rem }
-
-article div.epigraph > blockquote > footer > cite { font-style: italic; }
-/* end chapter epigraphs styles */
-
-article blockquote p, article blockquote footer{  width: 45%;
-                                  padding-left: 2.5%;
-                                  padding-right: 2.5%;}
-
-article blockquote footer {  font-size: 1.1rem;
-                line-height: 1.78181818;
-                margin-top: 1.78181818rem;
-                margin-bottom: 1.78181818rem;
-                text-align: right;
-                 }
-
-/* blockquote footer { width: 45%;
-                    text-align: right; }
-*/
-
-article .sans { font-family: $sans-font;
-        letter-spacing: .03em; }
-
-article pre, article pre code, article p code, article p pre code { font-family: $code-font;  // removed .code 'class' since code is an actual html tag
-        font-size: 1.2rem;                   // also added p code, p pre code and pre selector to account for Markdown parsing
-        line-height: 1.71428571;        // of triple backticks plus rationalized line-heights and margins
-        margin-top: 1.71428571rem; }
-
-
-article h1 code, article h2 code, article h3 code { font-size: 0.80em; } //left in for no real reason
-
-/*-- Table styling section - For Tufte-Jekyll, booktabs style is default for Markdown tables  --*/
-
-article table, article table.booktabs { width: auto;  //making booktabs style tables the unstyled default in case someone uses Markdown styling
-                 //margin: 0 auto;
-                 border-spacing: 0px;
-                 border-top: 2px solid $border-color;
-                 border-bottom: 2px solid $border-color; }
-
-article .booktabs th, article th { border-bottom: 1px solid $border-color;
-               padding: 0.65ex 0.5em 0.4ex 0.5em;
-               font-weight: normal;
-               //text-align: center; 
-               }
-
-article th, article td{ font-size: 1.2rem;
-        line-height: 1.71428571;  }
-
-article .booktabs th.cmid, article th { border-bottom: 1px solid lighten($border-color, 25%); }
-
-article .booktabs th.nocmid { border-bottom: none; }
-
-article .booktabs tbody tr:first-child td, article tr:first-child td { padding-top: 0.65ex; } /* add space between thead row and tbody */
-
-article .booktabs td, article td {  padding-left: 0.5em;
-                    padding-right: 0.5em;
-                    text-align: left; }            
-
-article .booktabs caption, article caption { font-size: 90%;
-                    text-align: left;
-                    width: auto;
-                    margin-left: auto;
-                    margin-right: auto;
-                    margin-top: 1ex;
-                    caption-side: top; }
-
-article .booktabs tbody tr, article .booktabs thead tr th.l, article .booktabs td.l { text-align: left !important; }
-article .booktabs tbody tr, article .booktabs thead tr th.c, article .booktabs td.c { text-align: center !important; }
-article .booktabs tbody tr, article .booktabs thead tr th.r, article .booktabs td.r { text-align: right !important; }
-
-article .table-caption { float:right;
-                 clear:right;
-                 margin-right: -60%;
-                 width: 50%;
-                 margin-top: 0;
-                 margin-bottom: 0;
-                 font-size: 1.0rem;
-                 line-height: 1.96; }
-/* -- End of Table Styling section --*/
-
-/* Basic Layout stuff --*/
-
-/*article { position: relative;
-          padding: 1
-
-          rem 0rem 2.5rem 0rem; } // reduced top and bottom padding by 50%
-*/
-
-article section { padding-top: 1rem;
-          padding-bottom: 1rem; }
-
-article ul, article ol { width: 45%;
-     -webkit-padding-start: 5%;
-     -webkit-padding-end: 5%;
-     list-style-type: none; }
-
-//li { padding: 0.5em 0; } //vertical padding on list items screws up vertical rhythym
-
-article figure, article figure img.maincolumn { max-width: 55%;
-         -webkit-margin-start: 0;
-         -webkit-margin-end: 0;
-         margin-bottom: 3em; }
-
-article figcaption { float: right;
-             clear: right;
-             margin-right: -50%;
-             margin-top: 0;
-             margin-bottom: 0;
-             font-size: 1.0rem;
-             line-height: 1.6;
-             vertical-align: baseline;
-             position: relative;
-             max-width: 40%; }
-
-article figure.fullwidth figcaption { float: left; margin-right: 0%; margin-left: 33%; max-width: 100%; }
-
-article img { max-width: 100%; }
-
-article .sidenote, article .marginnote { float: right;
-                         clear: right;
-                         margin-right: -35%;
-                         width: 30%;
-                         margin-top: 0;
-                         margin-bottom: 1.96rem;
-                         font-size: 0.9rem;
-                         line-height: 1.8; //changed to bring line heights into rational pattern
-                         vertical-align: baseline;
-                         position: relative; }
-
-
-article li .sidenote, article li .marginnote{ margin-right: -80%; } //added to allow for the fact that lists are indented and marginnotes and sidenotes push to right
-
-article blockquote .sidenote, article blockquote .marginnote { margin-right: -79% }
-
-.page__content .sidenote-number { counter-increment: sidenote-counter; }
-
-.page__content .sidenote-number:after, .page__content .sidenote:before { content: counter(sidenote-counter) " ";
-                                           font-family: et-bembo-roman-old-style;
-                                           color: $contrast-color; //added color
-                                           position: relative;
-                                           vertical-align: baseline; }
-
-.page__content .sidenote-number:after { content: counter(sidenote-counter);
-                         font-size: 1rem;
-                         top: -0.5rem;
-                         left: 0.1rem; }
-
-.page__content .sidenote:before { content: counter(sidenote-counter) ".\000a0"; // this is unicode for a non-breaking space
-                   color: $contrast-color;
-                   top: 0rem; } //removed superscripting for numerical reference in sidenote
-
-article p, article footer, article div.table-wrapper, article .MJXc-display { width: 100%; }
-
-article div.table-wrapper, article table { overflow-x: auto; } //changed all overflow values to 'auto' so scroll bars appear only as needed
-
-@media screen and (max-width: 760px) { article p, article footer { width: 90%; }
-                                       article pre code { width: 87.5%; }
-                                       article ul { width: 85%; }
-                                       article figure { max-width: 90%; }
-                                       article figcaption, article figure.fullwidth figcaption { margin-right: 0%;
-                                                                                 max-width: none; }
-                                       article blockquote p, article blockquote footer, article div.epigraph > blockquote > footer, article .MJXc-display {  width: 80%;
-                                                                          padding-left: 5%;
-                                                                          padding-right: 5%;
-                                                                        }}
-
-article .marginnote code, article .sidenote code { font-size: 1rem; } //more .code class removal
-
-article pre { width: 52.5%; //, pre code, p pre code are both selectors in tufte.css - they have been removed here to fix alignment issues
-           padding-left: 2.5%;
-           overflow-x: auto; }
-
-article .fullwidth, article li.listing div{ max-width: 90%; }
-
-article .full-width { .sidenote, .sidenote-number, .marginnote { display: none; } }
-
-article span.newthought { font-variant: small-caps;
-                  font-size: 1.2em;
-                  letter-spacing: 0.05rem; }
-
-article input.margin-toggle { display: none; }
-
-article label.sidenote-number { display: inline; }
-
-article label.margin-toggle:not(.sidenote-number) { display: none; }
-
-@media (max-width: 760px) { label.margin-toggle:not(.sidenote-number) { display: inline; color: $contrast-color; }
-                            article .sidenote, article .marginnote { display: none; }
-                            article .margin-toggle:checked + .sidenote,
-                            article .margin-toggle:checked + .marginnote { display: block;
-                                                                   float: left;
-                                                                   left: 1rem;
-                                                                   clear: both;
-                                                                   width: 95%;
-                                                                   margin: 1rem 2.5%;
-                                                                   vertical-align: baseline;
-                                                                   position: relative; }
-                            article label { cursor: pointer; }
-                            article pre, article pre code, article p code, article p pre code { width: 90%;
-                                       padding: 0; }
-                            article .table-caption { display: block;
-                                             float: right;
-                                             clear: both;
-                                             width: 98%;
-                                             margin-top: 1rem;
-                                             margin-bottom: 0.5rem;
-                                             margin-left: 1%;
-                                             margin-right: 1%;
-                                             vertical-align: baseline;
-                                             position: relative; }
-                            article div.table-wrapper, article table, article table.booktabs { width: 85%; }
-                            article div.table-wrapper { border-right: 1px solid #efefef; }
-                            article img { max-width: 100%; }
-                            article figcaption.maincolumn-figure, figure.fullwidth figcaption { float:none; text-align: center;}
-                            article figure.fullwidth figcaption { margin-left: 0; }
-                          }
-/*--- End of Basic Layout stuff from tufte.css ---*/
-
-/* -- Jekyll specific styling --*/
-//helper classes
-
-article .contrast { color: $contrast-color;}
-article .smaller { font-size: 80%;}
-//Nav and Footer styling area
-
-article header > nav.group, article body footer {
-  width: 95%;
-  padding-top: 2rem;
+.page__content a[rel="permalink"] .sr-only,
+.page__content .header-link .sr-only,
+.page__content .heading-anchor .sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
-article nav.group a.active:before{ content:"\0003c\000a0";} // escaped unicode for the carats and then a space on active menu links
-article nav.group a.active:after{ content:"\000a0\0003e" ;}
-
-article header > nav  a{
-  font-size: 1.2rem;
-  font-family: $sans-font;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: $contrast-color;
-  padding-top: 1.5rem;
-  text-decoration: none;
-  display: inline-block;
-  float: left;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-right: 2rem;
-  //margin-left: 1rem;
-  vertical-align: baseline;
+.page__content code,
+.page__content pre {
+  font-family: $mono;
 }
-article header > nav a img{
-  height: 5rem;
-  position: relative;
+
+.page__content img {
+  display: block;
   max-width: 100%;
-  top:-1.5rem;
-}
-article ul.footer-links, .credits{
-  list-style: none;
-  text-align: center;
-  margin: 0 auto;
-}
-article ul.footer-links li{
-  display: inline;
-  padding: 0.5rem 0.25rem;
-}
-article .credits{
-  padding: 1rem 0rem;
+  height: auto;
 }
 
-//change font color for credit links in footer
+/* Always-visible masthead */
 
-article .credits{
-  font-family: $sans-font;
-    & a{
-      color: $contrast-color;
-    }
+.masthead {
+  background: rgba($site-bg, 0.96);
+  border-bottom: 1px solid $rule;
+  box-shadow: none;
+  position: relative;
 }
 
-// End of Nav and Footer styling area
-
-//Full width page styling stuff
-
-article body.full-width, article .content-listing, article ul.content-listing li.listing{ width: 90%;
-       margin-left: auto;
-       margin-right: auto;
-       padding: 0% 5%;
-
-}
-article .full-width article p{
-  width: 90%;
+.masthead__inner-wrap {
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.75rem 1rem;
 }
 
+.site-nav {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 1.35rem;
+  justify-content: space-between;
+  min-width: 0;
+}
 
-article h1.content-listing-header{
-  font-style: normal;
+.site-nav__title {
+  color: $ink;
+  flex: 0 0 auto;
+  font-family: $serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+
+.site-nav__links {
+  display: flex;
+  flex: 1 1 34rem;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.85rem;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.site-nav__links a {
+  color: $muted;
+  font-family: $sans;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  line-height: 1.6;
+  text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: 0.2rem;
-  font-size: 1.8rem;
 }
 
-article li.listing hr{
-  width:100%;
+.site-nav__links a:hover {
+  color: $accent-dark;
 }
-article .listing, article .listing h3
-{
+
+.greedy-nav,
+.greedy-nav .visible-links,
+.greedy-nav .hidden-links,
+.greedy-nav__toggle {
+  display: none !important;
+}
+
+.hidden-links,
+.greedy-nav__toggle,
+.masthead button,
+.masthead .hidden,
+.masthead .search__toggle,
+.navicon,
+.navicon::before,
+.navicon::after {
+  display: none !important;
+}
+
+/* Minimal footer override */
+
+.page__footer {
+  background: transparent;
+  border-top: 1px solid $rule;
+  color: $muted;
+  margin-top: 2rem;
+}
+
+.page__footer footer {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.site-footer__inner {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  justify-content: space-between;
+}
+
+.site-footer p {
+  color: $muted;
+  font-family: $sans;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.site-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.site-footer a {
+  color: $muted;
+  font-family: $sans;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.site-footer a:hover {
+  color: $accent-dark;
+}
+
+/* Post footer actions */
+
+.page__updated {
+  color: $muted;
+  font-family: $sans;
+  font-size: 0.76rem !important;
+  letter-spacing: 0.08em;
+  line-height: 1.4 !important;
+  margin: 0.4rem 0 1.4rem;
+  max-width: 44rem;
+  text-transform: uppercase;
+}
+
+.page__updated time {
+  color: $ink;
+}
+
+.page__share,
+.pagination {
+  border-top: 1px solid $rule;
+  margin: 1rem auto 0;
+  max-width: 44rem;
+  padding-top: 1rem;
+}
+
+.page__share-title {
+  color: $muted;
+  font-family: $sans;
+  font-size: 0.72rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.14em;
+  line-height: 1.5 !important;
+  margin: 0 0 0.6rem !important;
+  text-transform: uppercase;
+}
+
+.page__share-links,
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.page__share-links a,
+.pagination--pager {
+  border: 1px solid $rule-strong;
+  color: $accent-dark;
+  font-family: $sans;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+  padding: 0.42rem 0.65rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.page__share-links a:hover,
+.pagination--pager:hover {
+  background: $ink;
+  border-color: $ink;
+  color: $paper;
+}
+
+.pagination--pager.disabled {
+  border-color: $rule;
+  color: rgba($muted, 0.48);
+  pointer-events: none;
+}
+
+/* Shared world-map components */
+
+.world-home,
+.world-index {
+  max-width: 1060px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.world-home {
+  padding-bottom: 2rem;
+}
+
+.world-index {
+  padding-bottom: 1.5rem;
+}
+
+.home-hero {
+  border-bottom: 1px solid $rule;
+  padding: clamp(2rem, 7vw, 5.75rem) 0 clamp(1.75rem, 5vw, 3.25rem);
+}
+
+.home-hero h1 {
+  max-width: 820px;
+}
+
+.hero-copy,
+.lede {
+  color: $ink;
+  font-size: clamp(1.2rem, 2.2vw, 1.65rem);
+  line-height: 1.35;
+  max-width: 760px;
+}
+
+.hero-copy {
+  margin: 0.8rem 0 1.3rem;
+}
+
+.lede {
+  margin-top: 0;
+}
+
+.eyebrow,
+.world-card__meta,
+.entry-row__date,
+.artifact {
+  color: $muted;
+  font-family: $sans;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  margin: 0 0 0.45rem;
+  text-transform: uppercase;
+}
+
+.hero-links,
+.contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.hero-links a,
+.contact-grid a {
+  border: 1px solid $rule-strong;
+  color: $accent-dark;
+  font-family: $sans;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  padding: 0.45rem 0.7rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.hero-links a:hover,
+.contact-grid a:hover {
+  background: $ink;
+  border-color: $ink;
+  color: $paper;
+}
+
+.section-block {
+  border-bottom: 1px solid $rule;
+  padding: clamp(1.75rem, 5vw, 3.2rem) 0;
+}
+
+.section-block:last-child {
+  border-bottom: 0;
+}
+
+.section-heading {
+  align-items: end;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  min-width: 0;
+}
+
+.section-heading h2 {
+  margin: 0;
+  max-width: 720px;
+  min-width: 0;
+}
+
+.section-heading > a {
+  color: $accent-dark;
+  flex: 0 0 auto;
+  font-family: $sans;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.compact-grid,
+.card-grid {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.compact-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+}
+
+.compact-grid > div,
+.world-card,
+.question-row,
+.entry-row {
+  background: rgba($paper, 0.55);
+  border: 1px solid $rule;
+}
+
+.compact-grid > div {
+  padding: 1rem;
+}
+
+.compact-grid h3,
+.world-card h3,
+.question-row h3,
+.entry-row h3 {
+  font-size: 1.15rem;
+  line-height: 1.15;
+  margin: 0 0 0.55rem;
+}
+
+.compact-grid p,
+.world-card p,
+.question-row p,
+.entry-row p {
+  color: $muted;
+  margin: 0;
+}
+
+.card-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+}
+
+.card-grid--work {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+}
+
+.world-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  min-width: 0;
+  padding: 1rem;
+}
+
+.world-card__body {
+  padding: 0;
+}
+
+.world-card__media {
+  background: $paper-soft;
+  border-bottom: 1px solid $rule;
+  margin: -1rem -1rem 1rem;
+}
+
+.world-card__media img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  width: 100%;
+}
+
+.world-card__media figcaption {
+  color: $muted;
+  font-size: 0.85rem;
+  line-height: 1.35;
+  padding: 0.6rem 0.75rem;
+}
+
+.artifact {
+  color: $industrial !important;
+  margin-top: 0.8rem !important;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  list-style: none;
+  margin: 0.85rem 0 0;
+  padding: 0;
+}
+
+.tag-list li {
+  border: 1px solid rgba($rule-strong, 0.7);
+  color: $muted;
+  font-family: $sans;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  padding: 0.22rem 0.45rem;
+  text-transform: uppercase;
+}
+
+.section-block--split {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(13rem, 0.85fr) minmax(0, 1.4fr);
+}
+
+.section-block--split .section-heading {
+  align-items: start;
+  display: block;
+  margin: 0;
+}
+
+.section-block--split .section-heading > a {
   display: inline-block;
-  margin:0;
+  margin-top: 0.85rem;
 }
-article li.listing {
-  margin:0;
-  & p{
-    width: 100%
+
+.question-list,
+.entry-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.question-row {
+  padding: 0.9rem 1rem;
+}
+
+.entry-row {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 6rem minmax(0, 1fr);
+  padding: 0.9rem 1rem;
+}
+
+.entry-row__date {
+  margin-top: 0.15rem;
+}
+
+.entry-row__body h3 a,
+.world-card h3 a {
+  color: $ink;
+  text-decoration: none;
+}
+
+.entry-row__body h3 a:hover,
+.world-card h3 a:hover {
+  color: $accent-dark;
+}
+
+.about-page .section-block {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Tufte-style long-form reading */
+
+.page__content > figure {
+  margin: 2rem 0;
+  max-width: 44rem;
+}
+
+.page__content figure.fullwidth {
+  max-width: 100%;
+}
+
+.page__content figure figcaption,
+.page__content .table-caption {
+  color: $muted;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  margin-top: 0.55rem;
+}
+
+.page__content table {
+  border-collapse: collapse;
+  border-top: 2px solid $ink;
+  border-bottom: 2px solid $ink;
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  width: fit-content;
+}
+
+.page__content th,
+.page__content td {
+  border-bottom: 1px solid $rule;
+  font-size: 0.95rem;
+  padding: 0.45rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.page__content blockquote {
+  border-left: 2px solid $rule-strong;
+  color: $muted;
+  font-style: italic;
+  margin-left: 0;
+  padding-left: 1rem;
+}
+
+.page__content .epigraph {
+  border-left: 0;
+  margin: 2.5rem 0;
+  max-width: 42rem;
+}
+
+.page__content .epigraph blockquote {
+  border-left: 0;
+  padding-left: 0;
+}
+
+.page__content .newthought {
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+}
+
+.page__content input.margin-toggle {
+  display: none;
+}
+
+.page__content label.sidenote-number {
+  cursor: pointer;
+  display: inline;
+}
+
+.page__content label.margin-toggle:not(.sidenote-number) {
+  color: $accent-dark;
+  cursor: pointer;
+  display: none;
+  font-family: $sans;
+  font-size: 0.85rem;
+  margin-left: 0.1rem;
+}
+
+.page__content .sidenote-number {
+  counter-increment: sidenote-counter;
+}
+
+.page__content .sidenote-number::after {
+  color: $accent;
+  content: counter(sidenote-counter);
+  font-family: ETbookRomanOldStyle, $serif;
+  font-size: 0.82rem;
+  position: relative;
+  top: -0.45rem;
+}
+
+.page__content .sidenote::before {
+  color: $accent;
+  content: counter(sidenote-counter) ". ";
+  font-family: ETbookRomanOldStyle, $serif;
+}
+
+.page__content .sidenote,
+.page__content .marginnote {
+  color: $muted;
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.page__content .marginnote img {
+  margin-bottom: 0.45rem;
+}
+
+@media (min-width: 1040px) {
+  .page__content .sidenote,
+  .page__content .marginnote {
+    clear: right;
+    float: right;
+    margin-right: -16.5rem;
+    margin-top: 0.2rem;
+    position: relative;
+    width: 14rem;
+  }
+
+  .page__content li .sidenote,
+  .page__content li .marginnote {
+    margin-right: -17.5rem;
+  }
+
+  .page__content .table-caption {
+    clear: right;
+    float: right;
+    margin-right: -16.5rem;
+    margin-top: 0;
+    width: 14rem;
   }
 }
 
+/* Mobile */
 
-article li.listing:last-of-type{
-  border-bottom: none;
-  margin-bottom: 1.4rem;
+@media (max-width: 900px) {
+  #main,
+  .masthead__inner-wrap {
+    max-width: none;
+  }
+
+  .site-nav {
+    display: block;
+  }
+
+  .site-nav__title {
+    display: inline-block;
+    margin-bottom: 0.35rem;
+  }
+
+  .site-nav__links {
+    justify-content: flex-start;
+  }
+
+  .compact-grid,
+  .card-grid,
+  .card-grid--work,
+  .section-block--split {
+    grid-template-columns: 1fr;
+  }
+
+  .section-heading {
+    align-items: start;
+    display: block;
+  }
+
+  .section-heading > a {
+    display: inline-block;
+    margin-top: 0.65rem;
+  }
 }
-article li.listing h3.new {
-  text-transform: uppercase;
-  font-style: normal;
-}
-article hr.slender {
-    border: 0;
-    height: 1px;
-    margin-top: 1.4rem;
-    margin-bottom:1.4rem;
-    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
-    background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
-    background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
-    background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
-}
-// End of front listing page stuff
 
+@media (max-width: 640px) {
+  .masthead__inner-wrap {
+    padding: 0.6rem 0.85rem;
+  }
 
-// Printing ands screen media queries
+  .site-nav__links {
+    gap: 0.18rem 0.62rem;
+  }
 
-// Does not display a print-footer for screen display
-@media screen{
-  .print-footer{
+  .site-nav__links a {
+    font-size: 0.66rem;
+    letter-spacing: 0.11em;
+  }
+
+  .page__content {
+    font-size: 1rem;
+  }
+
+  .page__content p,
+  .page__content li {
+    font-size: 1rem;
+  }
+
+  .home-hero {
+    padding-top: 1.7rem;
+  }
+
+  .hero-copy,
+  .lede {
+    font-size: 1.15rem;
+  }
+
+  .entry-row {
+    gap: 0.35rem;
+    grid-template-columns: 1fr;
+  }
+
+  .world-card,
+  .compact-grid > div,
+  .question-row,
+  .entry-row {
+    padding: 0.85rem;
+  }
+
+  .world-card__media {
+    margin: -0.85rem -0.85rem 0.85rem;
+  }
+
+  .page__content label.margin-toggle:not(.sidenote-number) {
+    display: inline;
+  }
+
+  .page__content .sidenote,
+  .page__content .marginnote {
     display: none;
   }
+
+  .page__content .margin-toggle:checked + .sidenote,
+  .page__content .margin-toggle:checked + .marginnote {
+    background: rgba($paper, 0.76);
+    border-left: 2px solid $accent;
+    clear: both;
+    display: block;
+    margin: 0.7rem 0 1rem;
+    padding: 0.65rem 0.8rem;
+    width: auto;
+  }
+
+  .page__content figure,
+  .page__content figure.fullwidth {
+    max-width: 100%;
+  }
+
+  .page__content table {
+    width: 100%;
+  }
 }
 
-//printing stuff
 @media print {
+  .masthead,
+  .page__footer,
+  .page__share,
+  .pagination {
+    display: none !important;
+  }
 
-    * {
-    -webkit-transition: none !important;
-    transition: none !important;
-    }
-    *,
-    *:before,
-    *:after {
-        background: transparent !important;
-        box-shadow: none !important;
-        text-shadow: none !important;
-    }
-    @page {
-        margin: 0.75in 0.5in 0.75in 0.5in;
-        orphans:4; widows:2;
-    }
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 12pt;
+  }
 
-    body {
-        font-size:  12pt;
-
-    }
-    html body span.print-footer{
-      font-family: $sans-font;
-      font-size: 9pt;
-      margin-top: 22.4pt;
-      padding-top: 4pt;
-      border-top: 1px solid #000;
-    }
-
-    thead {
-        display: table-header-group;
-    }
-
-    tr,
-    img {
-        page-break-inside: avoid;
-    }
-
-    img {
-        max-width: 100% !important;
-    }
-
-    p,
-    h2,
-    h3 {
-        orphans: 4;
-        widows: 4;
-    }
-    article h2, article h2 h3, article h3, article h3 h4, article h4, article h4 h5 {
-        page-break-after: avoid;
-    }
-
-    body header , body footer {
-      display:none;
-    }
+  .page__content {
+    font-size: 12pt;
+  }
 }
-
-
-/* --- Icomoon icon fonts CSS --*/
-@font-face {
-  font-family: 'icomoon';
-  src:  url('../fonts/icomoon.eot?pmc8bw');
-  src:  url('../fonts/icomoon.eot?pmc8bw#iefix') format('embedded-opentype'),
-    url('../fonts/icomoon.ttf?pmc8bw') format('truetype'),
-    url('../fonts/icomoon.woff?pmc8bw') format('woff'),
-    url('../fonts/icomoon.svg?pmc8bw#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
-  font-display: block;
-}
-
-[class^="icon-"], [class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icomoon' !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.icon-mail3:before {
-  content: "\ea85";
-}
-.icon-amazon:before {
-  content: "\ea87";
-}
-.icon-google2:before {
-  content: "\ea89";
-}
-.icon-facebook2:before {
-  content: "\ea91";
-}
-.icon-twitter:before {
-  content: "\ea96";
-}
-.icon-rss2:before {
-  content: "\ea9c";
-}
-.icon-youtube:before {
-  content: "\ea9d";
-}
-.icon-vimeo2:before {
-  content: "\eaa1";
-}
-.icon-lanyrd:before {
-  content: "\eaa2";
-}
-.icon-flickr3:before {
-  content: "\eaa5";
-}
-.icon-behance2:before {
-  content: "\eaa9";
-}
-.icon-dropbox:before {
-  content: "\eaae";
-}
-.icon-github:before {
-  content: "\eab0";
-}
-.icon-blogger2:before {
-  content: "\eab8";
-}
-.icon-soundcloud2:before {
-  content: "\eac4";
-}
-.icon-skype:before {
-  content: "\eac5";
-}
-.icon-reddit:before {
-  content: "\eac6";
-}
-.icon-linkedin:before {
-  content: "\eac9";
-}
-.icon-pinterest:before {
-  content: "\ead1";
-}
-.icon-paypal:before {
-  content: "\ead8";
-}
-.icon-html-five:before {
-  content: "\eae4";
-}
-/*-- End of Icomoon icon font section --*/

@@ -1,0 +1,42 @@
+---
+# Minimal local entrypoint intentionally replaces the Minimal Mistakes gem
+# stylesheet. The site styling lives in /css/tufte.scss; keeping this file
+# local prevents upstream theme Sass deprecation warnings during builds.
+---
+
+.screen-reader-shortcut,
+.visually-hidden,
+.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.screen-reader-shortcut:focus {
+  clip: auto;
+  height: auto;
+  left: 1rem;
+  margin: 0;
+  padding: 0.5rem 0.75rem;
+  top: 1rem;
+  width: auto;
+  z-index: 1000;
+}
+
+.skip-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.skip-links ul,
+.skip-links li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

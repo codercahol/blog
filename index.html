@@ -1,7 +1,149 @@
 ---
-# You don't need to edit this file, it's empty on purpose.
-# Edit theme's home layout instead if you wanna make some changes
-# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-layout: home
-author_profile: true
+layout: single
+permalink: /
+author_profile: false
 ---
+
+<div class="world-home">
+  <section class="home-hero" aria-labelledby="home-title">
+    <p class="eyebrow">Leron Perez</p>
+    <h1 id="home-title">Hard problems that touch atoms.</h1>
+    <p class="hero-copy">I work on the bottlenecks between laboratory science and scalable manufacturing: bioprocesses, instrumentation, process systems, separations, and programmable materials.</p>
+    <div class="hero-links" aria-label="Contact links">
+      <a href="https://github.com/codercahol">GitHub</a>
+      <a href="https://www.linkedin.com/in/leronperez/">LinkedIn</a>
+      <a href="mailto:lerons.blog@gmail.com">Email</a>
+    </div>
+  </section>
+
+  <section class="section-block" aria-labelledby="areas-title">
+    <div class="section-heading">
+      <p class="eyebrow">What I work on</p>
+      <h2 id="areas-title">Manufacturing, biology, measurement, and scale.</h2>
+    </div>
+    <div class="compact-grid">
+      <div>
+        <h3>Bioprocesses and scale-up</h3>
+        <p>Bioreactors, physiology, soft sensing, and process behavior that remains meaningful across scales.</p>
+      </div>
+      <div>
+        <h3>Instrumentation and control</h3>
+        <p>Measurement systems, reverse-engineered instruments, calibration, and closed-loop experimental workflows.</p>
+      </div>
+      <div>
+        <h3>Models tied to experiments</h3>
+        <p>Models that clarify what to measure, where a system fails, and how to turn noisy data into usable decisions.</p>
+      </div>
+      <div>
+        <h3>Programmable materials and manufacturing</h3>
+        <p>Process evidence, separations, materials, and infrastructure for translating physical technologies.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block" aria-labelledby="systems-title">
+    <div class="section-heading">
+      <p class="eyebrow">Selected systems</p>
+      <h2 id="systems-title">Evidence of building.</h2>
+      <a href="{{ '/work/' | relative_url }}">All work</a>
+    </div>
+    <div class="card-grid card-grid--work">
+      {% for item in site.data.work limit:4 %}
+        <article class="world-card">
+          {% if item.image %}
+            <figure class="world-card__media">
+              <img src="{{ item.image | relative_url }}" alt="{{ item.title | escape }}">
+              {% if item.caption %}<figcaption>{{ item.caption }}</figcaption>{% endif %}
+            </figure>
+          {% endif %}
+          <div class="world-card__body">
+            <p class="world-card__meta">{{ item.category }}</p>
+            <h3><a href="{{ '/work/#' | append: item.slug | relative_url }}">{{ item.title }}</a></h3>
+            <p>{{ item.summary }}</p>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="section-block section-block--split" aria-labelledby="questions-title">
+    <div class="section-heading">
+      <p class="eyebrow">Open loops</p>
+      <h2 id="questions-title">Current questions.</h2>
+      <a href="{{ '/questions/' | relative_url }}">More questions</a>
+    </div>
+    <div class="question-list question-list--compact">
+      {% for item in site.data.questions limit:4 %}
+        <article class="question-row">
+          <p class="world-card__meta">{{ item.category }}</p>
+          <h3>{{ item.question }}</h3>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="section-block" aria-labelledby="programs-title">
+    <div class="section-heading">
+      <p class="eyebrow">Programs</p>
+      <h2 id="programs-title">Bigger bets.</h2>
+      <a href="{{ '/programs/' | relative_url }}">All programs</a>
+    </div>
+    <div class="card-grid">
+      {% for program in site.data.programs limit:3 %}
+        <article class="world-card">
+          <p class="world-card__meta">{{ program.status }}</p>
+          <h3><a href="{{ '/programs/#' | append: program.slug | relative_url }}">{{ program.title }}</a></h3>
+          <p>{{ program.summary }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="section-block section-block--split" aria-labelledby="notes-title">
+    <div class="section-heading">
+      <p class="eyebrow">Field notes</p>
+      <h2 id="notes-title">Writing and partial thoughts.</h2>
+      <a href="{{ '/notes/' | relative_url }}">All notes</a>
+    </div>
+    <div class="entry-list entry-list--compact">
+      {% for post in site.posts limit:3 %}
+        <article class="entry-row">
+          <div class="entry-row__date">{{ post.date | date: "%Y.%m.%d" }}</div>
+          <div class="entry-row__body">
+            <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+            <p>{{ post.excerpt | strip_html | normalize_whitespace | truncate: 160 }}</p>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="section-block" aria-labelledby="side-doors-title">
+    <div class="section-heading">
+      <p class="eyebrow">Side doors</p>
+      <h2 id="side-doors-title">Tinkering, adventures, and reading.</h2>
+    </div>
+    <div class="card-grid">
+      <article class="world-card">
+        <p class="world-card__meta">Hands-on</p>
+        <h3><a href="{{ '/tinkering/' | relative_url }}">Tinkering</a></h3>
+        <p>Small builds, repairs, rigs, fixtures, and workshop notes.</p>
+      </article>
+      <article class="world-card">
+        <p class="world-card__meta">Elsewhere</p>
+        <h3><a href="{{ '/adventures/' | relative_url }}">Adventures</a></h3>
+        <p>Places, field observations, outdoor systems, and short photo notes.</p>
+      </article>
+      <article class="world-card">
+        <p class="world-card__meta">Reading</p>
+        <h3><a href="{{ '/bookshelf/' | relative_url }}">Bookshelf</a></h3>
+        <p>Books and references that shape my taste in systems, infrastructure, and physical-world technology.</p>
+      </article>
+      <article class="world-card">
+        <p class="world-card__meta">Context</p>
+        <h3><a href="{{ '/about/' | relative_url }}">About</a></h3>
+        <p>A concise map of background, current direction, and contact links.</p>
+      </article>
+    </div>
+  </section>
+</div>
