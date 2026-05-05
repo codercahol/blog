@@ -6,7 +6,7 @@ author_profile: false
 ---
 
 <div class="world-index">
-  <p class="lede">Essays, technical notes, partial thoughts, and lab-notebook-style writing. This section preserves the writing archive but no longer makes the whole site a blog feed.</p>
+  <p class="lede">Essays, technical notes, partial thoughts, and lab-notebook-style writing.</p>
 
   <section class="section-block" aria-labelledby="notes-list">
     <div class="section-heading">

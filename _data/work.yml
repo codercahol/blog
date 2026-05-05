@@ -28,7 +28,7 @@
 
 - title: "High-throughput microalgae measurement platform"
   slug: "high-throughput-microalgae-platform"
-  category: "Models tied to experiments"
+  category: "Automated phenotyping"
   summary: "An automated measurement and computer-vision workflow for quantifying photosynthetic performance at scale."
   status: "Measurement platform"
   year: "Research"
@@ -42,7 +42,7 @@
 
 - title: "Microbial adaptation and physiology"
   slug: "microbial-adaptation-physiology"
-  category: "Models tied to experiments"
+  category: "Microbial strategy"
   summary: "Theory and data work on how microbes allocate resources and respond to fluctuating environments."
   status: "Research thread"
   year: "Research"

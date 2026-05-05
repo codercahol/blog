@@ -6,13 +6,11 @@ author_profile: false
 ---
 
 <div class="world-index about-page">
-  <p class="lede">I am a builder, scientist, and technical generalist working on the bottlenecks between laboratory science and scalable manufacturing.</p>
+  <p class="lede">I am a builder, scientist, and technical generalist working to solve the bottlenecks between science and scalable manufacturing. I have a Biophysics PhD from Stanford and a Molecular Engineering BSc from UChicago.</p>
 
-  <p>My work spans biology, instrumentation, process systems, modeling, materials, and hands-on fabrication. I am especially interested in the systems that make physical technologies easier to measure, validate, scale, and manufacture.</p>
+  <p>My work has spanned microbial metabolism and physiology, reactor instrumentation and automation, transport phenomena in process scale-up, computational modeling, programmable materials, and hands-on fabrication. I am especially interested unlocking materials innovation: how can advanced materials transition from idea to scale >10x faster?</p>
 
-  <p>I trained in biophysics and have worked across microbial physiology, bioreactors, spectroscopy, automation, and process-oriented measurement. The common thread is translation: taking fragile lab observations and turning them into systems that can survive contact with real constraints.</p>
-
-  <p>The tinkering side matters. Repairs, fixtures, rigs, and small builds are part of how I think. They keep the broader manufacturing ambition grounded in real materials, failure modes, and practical tradeoffs.</p>
+  <p> I play by tinkering and spending time in the outdoors.</p>
 
   <section class="section-block" aria-labelledby="contact-title">
     <div class="section-heading">

@@ -6,11 +6,11 @@ author_profile: false
 ---
 
 <div class="world-index">
-  <p class="lede">A small personal section for places, field observations, outdoor systems, and photo notes. It should add texture without becoming a lifestyle blog.</p>
+  <p class="lede">Some past escapades. This section is under construction while I sort through photos and decide what belongs here.</p>
 
   <section class="section-block" aria-labelledby="adventures-list">
     <div class="section-heading">
-      <p class="eyebrow">Elsewhere</p>
+      <p class="eyebrow">Elsewhere · under construction</p>
       <h2 id="adventures-list">Adventures</h2>
     </div>
 

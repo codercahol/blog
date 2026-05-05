@@ -1,14 +1,3 @@
-- title: "PEEK extruder and high-temperature making"
-  slug: "peek-extruder"
-  summary: "A place for notes on building with difficult materials, high temperatures, and practical fabrication constraints."
-  year: "WIP"
-  tags:
-    - fabrication
-    - materials
-    - hardware
-  image:
-  caption:
-
 - title: "Laser-cutter ventilation box"
   slug: "laser-cutter-ventilation"
   summary: "A small utility build: made because the tool needed a better local environment."
@@ -28,5 +17,16 @@
     - repairs
     - rigs
     - tools
+  image:
+  caption:
+
+- title: "And more"
+  slug: "and-more"
+  summary: "Additional small builds, tools, materials experiments, and workshop notes will land here as I sort through photos and writeups."
+  year: "Under construction"
+  tags:
+    - builds
+    - notes
+    - photos
   image:
   caption:

@@ -6,7 +6,7 @@ author_profile: false
 ---
 
 <div class="world-index">
-  <p class="lede">Books and references that shape how I think about physical systems, manufacturing, biology, infrastructure, design, and technical taste.</p>
+  <p class="lede">Books I loved.</p>
 
   <section class="section-block" aria-labelledby="bookshelf-list">
     <div class="section-heading">
