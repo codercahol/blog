@@ -8,10 +8,11 @@
   <meta name="description" content="{{ page.excerpt | strip_html | escape }}">
   <link rel="canonical" href="{% if page.redirect_home %}{{ "/" | absolute_url }}{% else %}{{ page.url | absolute_url }}{% endif %}">
   <link rel="stylesheet" href="{{ '/assets/css/personal.css' | relative_url }}">
+  {% if page.homepage %}<link rel="stylesheet" href="{{ '/assets/css/homepage.css' | relative_url }}">{% endif %}
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <main id="main" class="personal-page" tabindex="-1">
+  <main id="main" class="personal-page{% if page.homepage %} homepage{% endif %}" tabindex="-1">
     {{ content }}
   </main>
 </body>

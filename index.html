@@ -1,43 +1,35 @@
 ---
 layout: personal
 title: Leron Perez
+homepage: true
 excerpt: "Developing Coherent Matter Moonshot and building a startup to accelerate materials testing."
 ---
-<header class="home-header">
-  <p class="site-name">Leron Perez</p>
-  <h1>Toward cheaper, more programmable manufacturing</h1>
-  <p class="home-intro">I work on solving the bottlenecks between science and scalable manufacturing. Past work on bioprocesses, instrumentation, high-throughput characterization, and programmable materials.</p>
+<header class="home-masthead">
+  <p class="home-name">Leron Perez</p>
+  <a class="home-contact" href="mailto:lerons.blog@gmail.com">Contact</a>
 </header>
 
-<section aria-labelledby="cmm-title">
-  <h2 id="cmm-title">Coherent Matter Moonshot</h2>
-  <p>I’m developing a manufacturing platform for materials with designed structures spanning nanometers to meters, starting with optical films. This effort is part of Renaissance Philanthropy’s BiTS fellowship with SPRIND.</p>
-  <p><a href="{{ '/BiTSconceptnote' | relative_url }}">Read the concept note <span aria-hidden="true">→</span></a></p>
-</section>
+<h1 class="home-headline">Toward cheaper, more programmable manufacturing</h1>
 
-<section aria-labelledby="startup-title">
-  <h2 id="startup-title">Accelerating materials testing</h2>
-  <p>I’m building a startup to accelerate materials testing. Currently in stealth.</p>
-</section>
+<div class="home-projects" data-project-tabs>
+  <div class="project-tabs" role="tablist" aria-label="Projects">
+    <button id="tab-cmm" type="button" role="tab" aria-selected="true" aria-controls="panel-cmm" tabindex="0">CMM</button>
+    <button id="tab-materials" type="button" role="tab" aria-selected="false" aria-controls="panel-materials" tabindex="-1">Materials testing</button>
+  </div>
 
-<section aria-labelledby="background-title">
-  <h2 id="background-title">Background</h2>
-  <p>I have a Biophysics PhD from Stanford and a Molecular Engineering BSc from UChicago.</p>
-  <p>My work has spanned microbial metabolism and physiology, reactor instrumentation and automation, transport phenomena in process scale-up, computational modeling, programmable materials, and hands-on fabrication.</p>
-  <p>I am especially interested in unlocking materials innovation: how can advanced materials transition from idea to scale more than 10× faster?</p>
-  <p>I play by tinkering and spending time in the outdoors.</p>
-</section>
+  <div class="project-panels">
+    <!-- CMM: edit this project's title, description, and optional link here. -->
+    <section id="panel-cmm" class="project-panel" role="tabpanel" aria-labelledby="tab-cmm" tabindex="0">
+      <h2>Coherent Matter Moonshot</h2>
+      <p>Placeholder description for the CMM project.</p>
+      <a href="{{ '/BiTSconceptnote' | relative_url }}">Read the concept note</a>
+    </section>
 
-<footer>
-  <nav class="contact-links" aria-label="Contact and profiles">
-    <a href="mailto:lerons.blog@gmail.com" aria-label="Email Leron Perez" title="Email">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg>
-    </a>
-    <a href="https://github.com/codercahol" aria-label="Leron Perez on GitHub" title="GitHub">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .75a11.25 11.25 0 0 0-3.558 21.923c.563.104.77-.244.77-.543 0-.267-.01-.974-.015-1.912-3.13.68-3.79-1.508-3.79-1.508-.512-1.3-1.25-1.647-1.25-1.647-1.022-.7.077-.686.077-.686 1.13.08 1.724 1.16 1.724 1.16 1.004 1.72 2.634 1.223 3.275.935.102-.727.393-1.223.715-1.505-2.5-.284-5.128-1.25-5.128-5.563 0-1.228.439-2.233 1.16-3.02-.116-.284-.503-1.429.11-2.978 0 0 .945-.303 3.094 1.154a10.78 10.78 0 0 1 5.632 0c2.148-1.457 3.092-1.154 3.092-1.154.614 1.55.227 2.694.112 2.978.722.787 1.158 1.792 1.158 3.02 0 4.324-2.632 5.276-5.14 5.555.404.349.765 1.035.765 2.086 0 1.505-.014 2.718-.014 3.087 0 .302.203.653.774.542A11.252 11.252 0 0 0 12 .75Z"/></svg>
-    </a>
-    <a href="https://www.linkedin.com/in/leronperez/" aria-label="Leron Perez on LinkedIn" title="LinkedIn">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52ZM7.93 18.75H4.98V9.2h2.95v9.55ZM6.45 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42Zm12.3 10.85H15.8V14.1c0-1.11-.02-2.54-1.55-2.54-1.55 0-1.79 1.21-1.79 2.46v4.73H9.51V9.2h2.83v1.3h.04c.39-.74 1.36-1.52 2.8-1.52 3 0 3.57 1.98 3.57 4.55v5.22Z"/></svg>
-    </a>
-  </nav>
-</footer>
+    <!-- Materials testing: edit this block independently; add a link if needed. -->
+    <section id="panel-materials" class="project-panel" role="tabpanel" aria-labelledby="tab-materials" tabindex="0" aria-hidden="true" inert>
+      <h2>Materials testing</h2>
+      <p>Placeholder description for the materials testing project.</p>
+    </section>
+  </div>
+</div>
+<script src="{{ '/assets/js/project-tabs.js' | relative_url }}" defer></script>
