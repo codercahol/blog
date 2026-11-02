@@ -10,7 +10,7 @@ materials testing. Jekyll + one local layout/CSS file; GitHub Pages hosting.
 - `bin/serve`: preview at http://127.0.0.1:4000.
 - `bin/check`: whitespace check and development build.
 - `JEKYLL_ENV=production bin/build`: release build.
-- Source: `codercahol/blog`; working branch: `revamp`.
+- Source: `codercahol/blog`; publishing branch: `streamlined-publish`.
 - Existing Pages workflow deploys pushes to `main`.
 
 ## Public content
@@ -22,32 +22,16 @@ materials testing. Jekyll + one local layout/CSS file; GitHub Pages hosting.
 - `_plugins/legacy_routes.rb`: former content addresses point to the homepage.
 - `404.html`: matching error page.
 
-## Numbered iterations
+## Publishing branch
 
-The main URL serves the current site. Frozen builds preserve these iterations:
+`streamlined-publish` contains the streamlined current site with the preferred
+manufacturing headline and introduction. Numbered snapshots and version navigation
+are saved on the separate `iterative-multi-view` branch and are absent here.
 
-- `/2/`: “Toward cheaper, more programmable manufacturing” (`952fc6f`).
-- `/3/`: the current Coherent Matter Moonshot and materials-testing design.
-- `/4/`: the minimal design with the manufacturing headline and revised introduction.
-
-Iteration 1 was removed. Earlier subversions of iteration 3 were not saved in Git;
-the available `/3/` snapshot preserves the current design.
-
-Each snapshot includes its own pages, styles, fonts, and images. For example,
-`/2/about` redirects to `/2/about/`, which serves the original About page.
-Links within a snapshot stay under its number. The iteration navigation keeps
-the same page when switching versions, falling back to that version’s homepage
-when the page is unavailable. Archived pages have `noindex` metadata.
-
-The numeric directories contain built static files, so ordinary builds need no
-historical theme dependencies or Git history. `_plugins/iterations.rb` adds the
-version switcher after each build using `_data/iterations.yml`.
-
-To preserve another iteration, build the site, run
-`python3 bin/snapshot 5 --source _site` with the next unused number, and add its
-number, label, and source to `_data/iterations.yml`. The snapshot command refuses
-to overwrite an existing version and skips other numbered directories. Run
-`bin/check` afterward to verify the build, nested pages, and internal links.
+Run `bin/check` for the development build and local-link checks, then
+`JEKYLL_ENV=production bin/build` for the release build. The concept-note PDF
+requirement below must be resolved before publishing. This branch is not deployed
+by a push: the existing workflow deploys `main` or an explicitly dispatched run.
 
 ## Frozen reference — excluded from public output
 
@@ -56,8 +40,7 @@ to overwrite an existing version and skips other numbered directories. Run
 - `_reference/originals/`: original 2021 posts, biography/config and existing photo.
 - Prior expanded portfolio copy remains recoverable from commit `952fc6f`.
 - The current site excludes essay bodies, the old feed, theme styles/fonts,
-  and archive plugins. Numbered snapshots retain their earlier public content
-  and assets. Selected current secondary pages use concise homepage-style copy.
+  and archive plugins. Selected current secondary pages use concise homepage-style copy.
 - `_reference/bio-2026-10-28.md`: the newly supplied bio source; the frozen
   evidence snapshot remains unchanged.
 - No specific trips/photos have been supplied for the travel/outdoors page.
