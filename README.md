@@ -17,9 +17,10 @@ materials testing. Jekyll + one local layout/CSS file; GitHub Pages hosting.
 
 - `index.html`: current efforts, user-supplied biography, interests, and contact links.
 - `BiTSconceptnote.html`: stable `/BiTSconceptnote` destination.
-- `questions.md`, `work.md`, `tinkering.md`, `adventures.md`, `bookshelf.md`: retained secondary pages.
-- `_layouts/personal.html`, `_layouts/content.html`, `assets/css/personal.css`: shared presentation.
-- `_plugins/legacy_routes.rb`: former content addresses point to the homepage.
+- `_layouts/personal.html`, `assets/css/personal.css`: shared presentation.
+- `assets/fonts/`: self-hosted ET Book fonts for the headline and introduction.
+- The homepage links only to email, GitHub, LinkedIn, and the concept note.
+- Secondary pages and legacy route pages are removed on this branch.
 - `404.html`: matching error page.
 
 ## Publishing branch
@@ -40,7 +41,7 @@ by a push: the existing workflow deploys `main` or an explicitly dispatched run.
 - `_reference/originals/`: original 2021 posts, biography/config and existing photo.
 - Prior expanded portfolio copy remains recoverable from commit `952fc6f`.
 - The current site excludes essay bodies, the old feed, theme styles/fonts,
-  and archive plugins. Selected current secondary pages use concise homepage-style copy.
+  and archive plugins. Only the homepage, concept note, and error page are built.
 - `_reference/bio-2026-10-28.md`: the newly supplied bio source; the frozen
   evidence snapshot remains unchanged.
 - No specific trips/photos have been supplied for the travel/outdoors page.
