@@ -1,7 +1,7 @@
 # leronperez.com
 
 Two current efforts: Coherent Matter Moonshot and a stealth startup accelerating
-materials testing. Jekyll + one local layout/CSS file; GitHub Pages hosting.
+materials testing. Jekyll with local styles and project tabs; GitHub Pages hosting.
 
 ## Local workflow
 
@@ -15,10 +15,11 @@ materials testing. Jekyll + one local layout/CSS file; GitHub Pages hosting.
 
 ## Public content
 
-- `index.html`: current efforts, user-supplied biography, interests, and contact links.
+- `index.html`: masthead, headline, and separate editable project panels.
 - `BiTSconceptnote.html`: stable `/BiTSconceptnote` destination.
 - `_layouts/personal.html`, `assets/css/personal.css`: shared presentation.
-- `assets/fonts/`: self-hosted ET Book fonts for the headline and introduction.
+- `assets/css/homepage.css`, `assets/js/project-tabs.js`: homepage layout and accessible tabs.
+- `assets/fonts/`: self-hosted Literata font and its redistribution license.
 - The homepage links only to email, GitHub, LinkedIn, and the concept note.
 - Secondary pages and legacy route pages are removed on this branch.
 - `404.html`: matching error page.
@@ -26,7 +27,7 @@ materials testing. Jekyll + one local layout/CSS file; GitHub Pages hosting.
 ## Publishing branch
 
 `streamlined-publish` contains the streamlined current site with the preferred
-manufacturing headline and introduction. Numbered snapshots and version navigation
+manufacturing headline. Numbered snapshots and version navigation
 are saved on the separate `iterative-multi-view` branch and are absent here.
 
 Run `bin/check` for the development build and local-link checks, then
@@ -34,17 +35,11 @@ Run `bin/check` for the development build and local-link checks, then
 requirement below must be resolved before publishing. This branch is not deployed
 by a push: the existing workflow deploys `main` or an explicitly dispatched run.
 
-## Frozen reference — excluded from public output
+## Earlier material
 
-- `_reference/website-evidence.md`: terse facts, links, source provenance,
-  pending verification, and clearly marked unverified inventory.
-- `_reference/originals/`: original 2021 posts, biography/config and existing photo.
-- Prior expanded portfolio copy remains recoverable from commit `952fc6f`.
-- The current site excludes essay bodies, the old feed, theme styles/fonts,
-  and archive plugins. Only the homepage, concept note, and error page are built.
-- `_reference/bio-2026-10-28.md`: the newly supplied bio source; the frozen
-  evidence snapshot remains unchanged.
-- No specific trips/photos have been supplied for the travel/outdoors page.
+Historical references and earlier website iterations are preserved on
+`iterative-multi-view`. This branch builds only the homepage, concept note,
+and error page. Local drafts and handoff notes are excluded from public output.
 
 ## Concept-note release / updates
 
@@ -52,8 +47,7 @@ The confirmed public PDF is still missing. Development displays a pending-docume
 notice; production builds fail rather than publish that notice.
 
 1. Obtain the author's confirmed public release. Do not substitute an application
-   PDF or annotated draft. The homepage biography and degree wording follow the
-   author's subsequently supplied bio.
+   PDF or annotated draft.
 2. Add the PDF under `assets/documents/` with a new versioned filename each
    release, e.g. `cmm-concept-note-YYYY-MM-DD.pdf`. Never overwrite an old asset.
 3. Update `_data/concept_note.yml`: `confirmed: true`, root-relative `pdf` URL,
@@ -65,5 +59,5 @@ notice; production builds fail rather than publish that notice.
    redirect is acceptable. Confirm the asset returns `application/pdf` and intended
    bytes; the download link uses the same-origin HTML download attribute.
 
-Do not place confidential drafts in public asset directories. Both `_reference/`
-and `codex_instructions/` are explicitly excluded from the generated site.
+Do not place confidential drafts in public asset directories. Reference and local
+instruction directories remain excluded from the generated site if restored.

@@ -1,41 +1,15 @@
-@font-face {
-  font-family: "ET Book Display";
-  src: url("../fonts/et-book-display-italic-old-style-figures.woff") format("woff");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "ET Book";
-  src: url("../fonts/et-book-roman-old-style-figures.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
 /* Shared by the homepage and concept note. */
 :root { color-scheme: light; font-family: Georgia, "Times New Roman", serif; color: #242722; background: #faf9f6; }
 * { box-sizing: border-box; }
 body { margin: 0; font-size: 18px; line-height: 1.6; }
 .personal-page { width: min(100% - 48px, 860px); margin: 64px auto 48px; }
-h1, h2 { font-weight: 500; line-height: 1.2; letter-spacing: -.025em; }
+h1 { font-weight: 500; line-height: 1.2; letter-spacing: -.025em; }
 h1 { font-size: 2.2rem; margin: 0 0 18px; }
-h2 { font-size: 1.5rem; margin: 0 0 14px; }
 p { margin: 0 0 16px; }
-.site-name { font: 600 clamp(2rem, 5vw, 2.75rem)/1.15 system-ui, sans-serif; letter-spacing: -.045em; margin-bottom: 32px; }
-.home-header h1 { font: italic 400 clamp(3rem, 7.5vw, 5.5rem)/1.02 "ET Book Display", Baskerville, Georgia, serif; letter-spacing: -.035em; margin-bottom: 28px; text-wrap: balance; }
-.home-intro { max-width: 740px; font: 400 clamp(1.35rem, 3vw, 1.65rem)/1.45 "ET Book", Georgia, serif; color: #46594f; }
-.home-header { margin-bottom: 56px; }
-.personal-page > section { max-width: 700px; }
-section { margin-top: 36px; }
 a { color: #24594f; text-decoration-thickness: 1px; text-underline-offset: .18em; }
 a:hover { color: #173b34; text-decoration-thickness: 2px; }
 a:focus-visible { outline: 2px solid #24594f; outline-offset: 5px; }
 .personal-links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
-footer { margin-top: 32px; }
-.contact-links { display: flex; flex-wrap: wrap; gap: 12px; }
-.contact-links a { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border: 1px solid #cdd3ca; border-radius: 50%; transition: background-color .15s; }
-.contact-links a:hover { background: #e9ede6; }
-.contact-links svg { width: 22px; height: 22px; }
 .skip-link { position: absolute; top: -100px; left: 20px; padding: 8px; background: #faf9f6; }
 .skip-link:focus { top: 8px; }
 .back-link { display: inline-block; margin-bottom: 32px; }
@@ -45,11 +19,7 @@ footer { margin-top: 32px; }
 @media (max-width: 480px) {
   .personal-page { margin-top: 32px; }
   h1 { font-size: 1.9rem; }
-  h2 { font-size: 1.35rem; }
   .pdf-viewer { height: 65vh; min-height: 360px; }
 }
 
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
-
-.personal-page > h2 { margin-top: 32px; }
-li + li { margin-top: 12px; }
