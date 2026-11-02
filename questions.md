@@ -1,27 +1,20 @@
 ---
-layout: single
+layout: content
 title: Questions
+excerpt: "Questions about materials innovation, measurement, and scale-up."
 permalink: /questions/
-author_profile: false
 ---
 
-<div class="world-index">
-  <p class="lede">A deliberately incomplete list of questions I keep circling. These are hooks for collaborators, future notes, and research programs.</p>
+How can advanced materials transition from idea to scale more than 10× faster?
 
-  <section class="section-block" aria-labelledby="question-list">
-    <div class="section-heading">
-      <p class="eyebrow">Open loops</p>
-      <h2 id="question-list">Current questions</h2>
-    </div>
+- What evidence should a new physical process carry before anyone believes it can scale?
 
-    <div class="question-list">
-      {% for item in site.data.questions %}
-        <article class="question-row">
-          <p class="world-card__meta">{{ item.category }}</p>
-          <h3>{{ item.question }}</h3>
-          <p>{{ item.context }}</p>
-        </article>
-      {% endfor %}
-    </div>
-  </section>
-</div>
+- Which biological measurements are actually predictive across reactor scales?
+
+- How cheap can closed-loop measurement become before it changes what experiments people attempt?
+
+- What would make programmable materials feel more like an engineering substrate than a lab curiosity?
+
+- Where should automation end and scientific judgment begin?
+
+- Which manufacturing bottlenecks are civilizationally important but too unglamorous to attract talent?

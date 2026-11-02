@@ -3,3 +3,4 @@ set -eu
 
 git diff --check
 "$(dirname "$0")/build"
+python3 "$(dirname "$0")/check-iterations"

@@ -1,68 +1,38 @@
 ---
-layout: single
-title: Work
+layout: content
+title: Past work
+excerpt: "Selected work in bioreactors, instrumentation, microbial physiology, and modeling."
 permalink: /work/
-author_profile: false
 ---
 
-<div class="world-index">
-  <p class="lede">Selected systems and technical dossiers across bioprocesses, instrumentation, models, manufacturing, and hands-on builds.</p>
+My work has spanned microbial metabolism and physiology, reactor instrumentation and automation, transport phenomena in process scale-up, computational modeling, programmable materials, and hands-on fabrication.
 
-  <section class="section-block" aria-labelledby="selected-systems">
-    <div class="section-heading">
-      <p class="eyebrow">Execution</p>
-      <h2 id="selected-systems">Selected systems</h2>
-    </div>
+<section id="bioreactor-gas-control-oxygen-inference">
+  <h2>Bioreactor gas-control / oxygen-inference system</h2>
+  <p>Gas control, calibration, mass transport, and oxygen inference in bioreactors.</p>
+</section>
 
-    <div class="card-grid card-grid--work">
-      {% for item in site.data.work %}
-        <article class="world-card" id="{{ item.slug }}">
-          {% if item.image %}
-            <figure class="world-card__media">
-              <img src="{{ item.image | relative_url }}" alt="{{ item.title | escape }}">
-              {% if item.caption %}<figcaption>{{ item.caption }}</figcaption>{% endif %}
-            </figure>
-          {% endif %}
-          <div class="world-card__body">
-            <p class="world-card__meta">{{ item.category }} · {{ item.status }}</p>
-            <h3>{{ item.title }}</h3>
-            <p>{{ item.summary }}</p>
-            {% if item.artifact %}<p class="artifact">{{ item.artifact }}</p>{% endif %}
-            {% if item.tags %}
-              <ul class="tag-list" aria-label="Tags">
-                {% for tag in item.tags %}
-                  <li>{{ tag }}</li>
-                {% endfor %}
-              </ul>
-            {% endif %}
-          </div>
-        </article>
-      {% endfor %}
-    </div>
-  </section>
+<section id="spectrometer-closed-loop-polymer-synthesis">
+  <h2>Reverse-engineered spectrometer for closed-loop polymer synthesis</h2>
+  <p>Spectrometer integration for measurement and control in a continuous polyurethane reactor.</p>
+</section>
 
-  <section class="section-block" aria-labelledby="work-buckets">
-    <div class="section-heading">
-      <p class="eyebrow">Map</p>
-      <h2 id="work-buckets">How the work clusters</h2>
-    </div>
-    <div class="compact-grid">
-      <div>
-        <h3>Bioprocesses and scale-up</h3>
-        <p>Bioreactors, physiology, soft sensing, process translation, and evidence that survives a change of scale.</p>
-      </div>
-      <div>
-        <h3>Instrumentation and control</h3>
-        <p>Measurement systems, reverse-engineered instruments, reactor feedback, automation, and calibration.</p>
-      </div>
-      <div>
-        <h3>Models tied to experiments</h3>
-        <p>Models that clarify what to measure, how to interpret biological variation, and where a system can fail.</p>
-      </div>
-      <div>
-        <h3>Programmable materials and manufacturing</h3>
-        <p>Polymer/process systems, scale-up evidence, separations, and infrastructure for making physical technologies real.</p>
-      </div>
-    </div>
-  </section>
-</div>
+<section id="high-throughput-microalgae-platform">
+  <h2>High-throughput microalgae measurement platform</h2>
+  <p>Automated measurement and image analysis for microalgae photosynthetic performance.</p>
+</section>
+
+<section id="microbial-adaptation-physiology">
+  <h2>Microbial adaptation and physiology</h2>
+  <p>Models and measurements of microbial resource allocation and responses to fluctuating environments.</p>
+</section>
+
+## Earlier research
+
+At UChicago, I worked with the [Gilbert](https://gilbertlab.com/) and [Murugan](http://muruganlab.uchicago.edu/) labs.
+
+[Code and research repositories on GitHub](https://github.com/codercahol)
+
+## Related interests
+
+[Hands-on fabrication and tinkering](/tinkering/) · [Questions about materials and manufacturing](/questions/)

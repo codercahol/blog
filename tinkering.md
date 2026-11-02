@@ -1,42 +1,23 @@
 ---
-layout: single
+layout: content
 title: Tinkering
+excerpt: "Fabrication, small builds, repairs, and rigs."
 permalink: /tinkering/
-author_profile: false
 ---
 
-<div class="world-index">
-  <p class="lede">Small builds, repairs, rigs, fixtures, and workshop notes. This section is intentionally direct: evidence of practical engineering instinct, not polished case studies.</p>
+I play by tinkering. Some of the projects collected here:
 
-  <section class="section-block" aria-labelledby="tinkering-list">
-    <div class="section-heading">
-      <p class="eyebrow">Hands-on</p>
-      <h2 id="tinkering-list">Things made because they were needed</h2>
-    </div>
+<section id="peek-extruder">
+  <h2>PEEK extruder</h2>
+  <p>High-temperature fabrication.</p>
+</section>
 
-    <div class="card-grid">
-      {% for item in site.data.tinkering %}
-        <article class="world-card" id="{{ item.slug }}">
-          {% if item.image %}
-            <figure class="world-card__media">
-              <img src="{{ item.image | relative_url }}" alt="{{ item.title | escape }}">
-              {% if item.caption %}<figcaption>{{ item.caption }}</figcaption>{% endif %}
-            </figure>
-          {% endif %}
-          <div class="world-card__body">
-            <p class="world-card__meta">{{ item.year }}</p>
-            <h3>{{ item.title }}</h3>
-            <p>{{ item.summary }}</p>
-            {% if item.tags %}
-              <ul class="tag-list" aria-label="Tags">
-                {% for tag in item.tags %}
-                  <li>{{ tag }}</li>
-                {% endfor %}
-              </ul>
-            {% endif %}
-          </div>
-        </article>
-      {% endfor %}
-    </div>
-  </section>
-</div>
+<section id="laser-cutter-ventilation">
+  <h2>Laser-cutter ventilation box</h2>
+  <p>A workshop utility build.</p>
+</section>
+
+<section id="repairs-rigs-hacks">
+  <h2>Repairs, rigs, and useful hacks</h2>
+  <p>Practical fixes, fixtures, and small devices.</p>
+</section>

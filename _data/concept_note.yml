@@ -1,0 +1,10 @@
+# Set confirmed only after the author approves the public release.
+confirmed: false
+title: Coherent Matter Moonshot — Concept note
+author: Leron Perez
+# Repository-relative URL to a versioned, self-hosted PDF, e.g.
+# pdf: /assets/documents/cmm-concept-note-YYYY-MM-DD.pdf
+pdf:
+# Copy these from the confirmed document; leave blank when unavailable.
+version:
+date:

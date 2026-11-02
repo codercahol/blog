@@ -1,0 +1,23 @@
+.iteration-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 16px;
+  padding: 12px 20px;
+  border-bottom: 1px solid #d5d8d0;
+  background: #faf9f6;
+  color: #555b52;
+  font: 14px/1.5 system-ui, sans-serif;
+}
+.iteration-nav a {
+  color: #24594f;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.iteration-nav a[aria-current="page"] {
+  color: #242722;
+  font-weight: 700;
+  text-decoration: none;
+}
+.iteration-nav a:focus-visible { outline: 2px solid #24594f; outline-offset: 4px; }

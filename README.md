@@ -1,62 +1,85 @@
-## Leron Perez
+# leronperez.com
 
-Personal website for a project-led technical CV/world map. The site is intentionally static, content-first, and low-maintenance: Jekyll, Markdown, Liquid, small YAML data files, and local CSS.
+Two current efforts: Coherent Matter Moonshot and a stealth startup accelerating
+materials testing. Jekyll + one local layout/CSS file; GitHub Pages hosting.
 
-### Build
-- Ruby version: see `.ruby-version`.
-- One-time setup: `bin/setup`
-- Build: `bin/build`
-- Local server: `bin/serve`
-- Maintenance check: `bin/check`
+## Local workflow
 
-The scripts pin Bundler to the version in `Gemfile.lock` and install gems under `vendor/bundle` by default. `vendor/bundle`, `_site`, and local Bundler config are ignored.
+- Ruby: `.ruby-version`; Bundler: `Gemfile.lock`.
+- `bin/setup`: install dependencies into ignored `vendor/bundle`.
+- `bin/serve`: preview at http://127.0.0.1:4000.
+- `bin/check`: whitespace check and development build.
+- `JEKYLL_ENV=production bin/build`: release build.
+- Source: `codercahol/blog`; working branch: `revamp`.
+- Existing Pages workflow deploys pushes to `main`.
 
-### Deployment
-- The repo uses custom Jekyll plugins and a modern local Jekyll bundle.
-- If deploying through GitHub Pages, prefer a GitHub Actions build that runs `bin/build` and publishes `_site`.
-- Do not assume GitHub Pages' native builder will match this local dependency set.
+## Public content
 
-### Maintenance Standard
-- `bin/check` should complete without warnings.
-- Keep framework surface area small; do not add JavaScript or a new static-site framework unless the content model genuinely requires it.
-- Prefer data edits in `_data/*.yml` for index cards and lightweight entries.
-- Prefer Markdown posts/pages for long-form writing, project details, and program notes.
-- Keep generated output out of git.
+- `index.html`: current efforts, user-supplied biography, interests, and contact links.
+- `BiTSconceptnote.html`: stable `/BiTSconceptnote` destination.
+- `questions.md`, `work.md`, `tinkering.md`, `adventures.md`, `bookshelf.md`: retained secondary pages.
+- `_layouts/personal.html`, `_layouts/content.html`, `assets/css/personal.css`: shared presentation.
+- `_plugins/legacy_routes.rb`: former content addresses point to the homepage.
+- `404.html`: matching error page.
 
-### Content Map
-- `index.html`: homepage.
-- `work.md`: selected systems and technical dossiers.
-- `notes.md`: writing archive sourced from `_posts/`.
-- `programs.md`: larger research/manufacturing theses.
-- `questions.md`: open questions and collaboration hooks.
-- `tinkering.md`: builds, repairs, rigs, fixtures, and workshop notes.
-- `adventures.md`: places, field observations, and short photo notes.
-- `bookshelf.md`: books and references.
-- `about.md`: concise background and contact.
+## Numbered iterations
 
-### Data Files
-- `_data/work.yml`
-- `_data/programs.yml`
-- `_data/questions.yml`
-- `_data/tinkering.yml`
-- `_data/adventures.yml`
-- `_data/bookshelf.yml`
+The main URL serves the current site. Frozen builds preserve these iterations:
 
-### Images
-- Store images by section under `assets/images/`, for example:
-  - `assets/images/work/`
-  - `assets/images/notes/`
-  - `assets/images/tinkering/`
-  - `assets/images/adventures/`
-  - `assets/images/bookshelf/`
-- Add `image` and optional `caption` fields to the relevant `_data/*.yml` entry.
-- Use ordinary Markdown images for simple inline images.
-- Use Tufte Liquid tags on long-form content pages when placement matters:
-  - `{% raw %}{% maincolumn 'assets/images/path.jpg' 'Caption' %}{% endraw %}`
-  - `{% raw %}{% fullwidth 'assets/images/path.jpg' 'Caption' %}{% endraw %}`
-  - `{% raw %}{% marginfigure 'figure-id' 'assets/images/path.jpg' 'Caption' %}{% endraw %}`
+- `/2/`: “Toward cheaper, more programmable manufacturing” (`952fc6f`).
+- `/3/`: the current Coherent Matter Moonshot and materials-testing design.
+- `/4/`: the minimal design with the manufacturing headline and revised introduction.
 
-### Tufte Notes
-- Sidenotes and margin notes are intended for notes, project details, and program pages, not the homepage.
-- Existing custom tags live in `_plugins/`.
-- Mobile behavior collapses margin notes behind tap targets so pages remain readable on small screens.
+Iteration 1 was removed. Earlier subversions of iteration 3 were not saved in Git;
+the available `/3/` snapshot preserves the current design.
+
+Each snapshot includes its own pages, styles, fonts, and images. For example,
+`/2/about` redirects to `/2/about/`, which serves the original About page.
+Links within a snapshot stay under its number. The iteration navigation keeps
+the same page when switching versions, falling back to that version’s homepage
+when the page is unavailable. Archived pages have `noindex` metadata.
+
+The numeric directories contain built static files, so ordinary builds need no
+historical theme dependencies or Git history. `_plugins/iterations.rb` adds the
+version switcher after each build using `_data/iterations.yml`.
+
+To preserve another iteration, build the site, run
+`python3 bin/snapshot 5 --source _site` with the next unused number, and add its
+number, label, and source to `_data/iterations.yml`. The snapshot command refuses
+to overwrite an existing version and skips other numbered directories. Run
+`bin/check` afterward to verify the build, nested pages, and internal links.
+
+## Frozen reference — excluded from public output
+
+- `_reference/website-evidence.md`: terse facts, links, source provenance,
+  pending verification, and clearly marked unverified inventory.
+- `_reference/originals/`: original 2021 posts, biography/config and existing photo.
+- Prior expanded portfolio copy remains recoverable from commit `952fc6f`.
+- The current site excludes essay bodies, the old feed, theme styles/fonts,
+  and archive plugins. Numbered snapshots retain their earlier public content
+  and assets. Selected current secondary pages use concise homepage-style copy.
+- `_reference/bio-2026-10-28.md`: the newly supplied bio source; the frozen
+  evidence snapshot remains unchanged.
+- No specific trips/photos have been supplied for the travel/outdoors page.
+
+## Concept-note release / updates
+
+The confirmed public PDF is still missing. Development displays a pending-document
+notice; production builds fail rather than publish that notice.
+
+1. Obtain the author's confirmed public release. Do not substitute an application
+   PDF or annotated draft. The homepage biography and degree wording follow the
+   author's subsequently supplied bio.
+2. Add the PDF under `assets/documents/` with a new versioned filename each
+   release, e.g. `cmm-concept-note-YYYY-MM-DD.pdf`. Never overwrite an old asset.
+3. Update `_data/concept_note.yml`: `confirmed: true`, root-relative `pdf` URL,
+   actual title, and version/date if supplied by the document. Leave unknowns blank.
+4. Run `bin/check` and `JEKYLL_ENV=production bin/build`. Verify desktop/mobile,
+   direct navigation and refresh at `/BiTSconceptnote`, inline viewing, Open PDF,
+   Download PDF, and fallback links before release.
+5. After deployment, check the exact domain address signed out. A trailing-slash
+   redirect is acceptable. Confirm the asset returns `application/pdf` and intended
+   bytes; the download link uses the same-origin HTML download attribute.
+
+Do not place confidential drafts in public asset directories. Both `_reference/`
+and `codex_instructions/` are explicitly excluded from the generated site.

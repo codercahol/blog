@@ -1,0 +1,24 @@
+---
+layout: personal
+title: Coherent Matter Moonshot — Concept note
+excerpt: "Leron Perez’s concept note for Coherent Matter Moonshot."
+permalink: /BiTSconceptnote/
+---
+{% assign note = site.data.concept_note %}
+<a class="back-link" href="{{ '/' | relative_url }}">← Leron Perez</a>
+<header>
+  <h1>{{ note.title | escape }}</h1>
+  <p class="document-meta">{{ note.author | escape }}<br>Renaissance Philanthropy’s BiTS fellowship with SPRIND{% if note.version %}<br>Version {{ note.version | escape }}{% endif %}{% if note.date %}<br>{{ note.date | escape }}{% endif %}</p>
+</header>
+{% if note.confirmed and note.pdf %}
+<nav class="personal-links" aria-label="PDF actions">
+  <a href="{{ note.pdf | relative_url }}" target="_blank" rel="noopener">Open PDF<span class="visually-hidden"> (new tab)</span></a>
+  <a href="{{ note.pdf | relative_url }}" download>Download PDF</a>
+</nav>
+<p>If the document does not display below, use Open PDF or Download PDF above.</p>
+<object class="pdf-viewer" data="{{ note.pdf | relative_url }}" type="application/pdf" aria-label="{{ note.title | escape }} by {{ note.author | escape }}" title="{{ note.title | escape }}">
+  <p>This browser cannot display the PDF inline. <a href="{{ note.pdf | relative_url }}">Open the concept note</a> or <a href="{{ note.pdf | relative_url }}" download>download the PDF</a>.</p>
+</object>
+{% else %}
+<p class="preview-notice">Local preview: the public concept-note PDF is awaiting author confirmation.</p>
+{% endif %}
