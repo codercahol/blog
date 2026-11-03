@@ -1,62 +1,58 @@
-## Leron Perez
+# leronperez.com
 
-Personal website for a project-led technical CV/world map. The site is intentionally static, content-first, and low-maintenance: Jekyll, Markdown, Liquid, small YAML data files, and local CSS.
+Two current efforts: Coherent Matter Moonshot and a stealth startup accelerating
+materials testing. Jekyll with local styles and project tabs; GitHub Pages hosting.
 
-### Build
-- Ruby version: see `.ruby-version`.
-- One-time setup: `bin/setup`
-- Build: `bin/build`
-- Local server: `bin/serve`
-- Maintenance check: `bin/check`
+## Local workflow
 
-The scripts pin Bundler to the version in `Gemfile.lock` and install gems under `vendor/bundle` by default. `vendor/bundle`, `_site`, and local Bundler config are ignored.
+- Ruby: `.ruby-version`; Bundler: `Gemfile.lock`.
+- `bin/setup`: install dependencies into ignored `vendor/bundle`.
+- `bin/serve`: preview at http://127.0.0.1:4000.
+- `bin/check`: whitespace check and development build.
+- `JEKYLL_ENV=production bin/build`: release build.
+- Source: `codercahol/blog`; publishing branch: `streamlined-publish`.
+- Existing Pages workflow deploys pushes to `main`.
 
-### Deployment
-- The repo uses custom Jekyll plugins and a modern local Jekyll bundle.
-- If deploying through GitHub Pages, prefer a GitHub Actions build that runs `bin/build` and publishes `_site`.
-- Do not assume GitHub Pages' native builder will match this local dependency set.
+## Public content
 
-### Maintenance Standard
-- `bin/check` should complete without warnings.
-- Keep framework surface area small; do not add JavaScript or a new static-site framework unless the content model genuinely requires it.
-- Prefer data edits in `_data/*.yml` for index cards and lightweight entries.
-- Prefer Markdown posts/pages for long-form writing, project details, and program notes.
-- Keep generated output out of git.
+- `index.html`: masthead, headline, and separate editable project panels.
+- `about.html`: biography placeholder at `/about/`, linked from the masthead.
+- `BiTSconceptnote.html`: stable `/BiTSconceptnote` destination.
+- `_layouts/personal.html`, `assets/css/personal.css`: shared presentation.
+- `assets/css/homepage.css`, `assets/js/project-tabs.js`: homepage layout and accessible tabs.
+- `assets/fonts/`: self-hosted Literata font and its redistribution license.
+- The homepage links to About, email, GitHub, LinkedIn, and the concept note.
+- Secondary pages and legacy route pages are removed on this branch.
+- `404.html`: matching error page.
 
-### Content Map
-- `index.html`: homepage.
-- `work.md`: selected systems and technical dossiers.
-- `notes.md`: writing archive sourced from `_posts/`.
-- `programs.md`: larger research/manufacturing theses.
-- `questions.md`: open questions and collaboration hooks.
-- `tinkering.md`: builds, repairs, rigs, fixtures, and workshop notes.
-- `adventures.md`: places, field observations, and short photo notes.
-- `bookshelf.md`: books and references.
-- `about.md`: concise background and contact.
+## Publishing branch
 
-### Data Files
-- `_data/work.yml`
-- `_data/programs.yml`
-- `_data/questions.yml`
-- `_data/tinkering.yml`
-- `_data/adventures.yml`
-- `_data/bookshelf.yml`
+`streamlined-publish` contains the streamlined current site with the preferred
+manufacturing headline. Numbered snapshots and version navigation
+are saved on the separate `iterative-multi-view` branch and are absent here.
 
-### Images
-- Store images by section under `assets/images/`, for example:
-  - `assets/images/work/`
-  - `assets/images/notes/`
-  - `assets/images/tinkering/`
-  - `assets/images/adventures/`
-  - `assets/images/bookshelf/`
-- Add `image` and optional `caption` fields to the relevant `_data/*.yml` entry.
-- Use ordinary Markdown images for simple inline images.
-- Use Tufte Liquid tags on long-form content pages when placement matters:
-  - `{% raw %}{% maincolumn 'assets/images/path.jpg' 'Caption' %}{% endraw %}`
-  - `{% raw %}{% fullwidth 'assets/images/path.jpg' 'Caption' %}{% endraw %}`
-  - `{% raw %}{% marginfigure 'figure-id' 'assets/images/path.jpg' 'Caption' %}{% endraw %}`
+Run `bin/check` for the development build and local-link checks, then
+`JEKYLL_ENV=production bin/build` for the release build. The concept-note PDF
+requirement below must be resolved before publishing. This branch is not deployed
+by a push: the existing workflow deploys `main` or an explicitly dispatched run.
 
-### Tufte Notes
-- Sidenotes and margin notes are intended for notes, project details, and program pages, not the homepage.
-- Existing custom tags live in `_plugins/`.
-- Mobile behavior collapses margin notes behind tap targets so pages remain readable on small screens.
+## Earlier material
+
+Historical references and earlier website iterations are preserved on
+`iterative-multi-view`. This branch builds only the homepage, About, concept note,
+and error page. Local drafts and handoff notes are excluded from public output.
+
+## Concept-note release / updates
+
+The concept note uses the author-supplied Papermark embed. Its URL, title, author,
+and confirmation flag live in `_data/concept_note.yml`. Production requires
+`confirmed: true` and a valid `https://app.papermark.com/view/<id>/embed` URL.
+
+To replace the document, update `embed_url` to the confirmed public release.
+Keep title, version, and date consistent with the document; leave unknowns blank.
+Run `bin/check` and `JEKYLL_ENV=production bin/build`, then verify the embedded
+viewer, fullscreen action, and fallback link at `/BiTSconceptnote/`.
+The fallback opens the document directly on Papermark in a new tab.
+
+Do not place confidential drafts in public asset directories. Reference and local
+instruction directories remain excluded from the generated site if restored.

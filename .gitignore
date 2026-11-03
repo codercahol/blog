@@ -7,3 +7,4 @@ codex_instructions/*
 .DS_Store
 .bundle/
 vendor/bundle/
+.jekyll-cache/

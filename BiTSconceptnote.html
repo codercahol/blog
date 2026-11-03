@@ -1,0 +1,29 @@
+---
+layout: personal
+title: Coherent Matter Moonshot — Concept note
+excerpt: "Leron Perez’s concept note for Coherent Matter Moonshot."
+permalink: /BiTSconceptnote/
+---
+{% assign note = site.data.concept_note %}
+<a class="back-link" href="{{ '/' | relative_url }}">← Home</a>
+<header>
+  <h1>{{ note.title | escape }}</h1>
+  <div class="document-byline">
+    <span class="document-author">{{ note.author | escape }}</span>
+    <span class="document-updated">Last updated <time datetime="2026-10-28">October 28th, 2026</time></span>
+  </div>
+  <p class="document-meta">Initial development supported by Renaissance Philanthropy's <a
+      href="https://www.renaissancephilanthropy.org/insights/meet-the-bits-sprind2-cohort">Big if True Science (BiTS)
+      Accelerator</a> in partnership with SPRIND.{% if note.version %}<br>Version {{ note.version | escape }}{% endif
+    %}{% if note.date %}<br>{{ note.date | escape }}{% endif %}</p>
+</header>
+{% if note.confirmed and note.embed_url %}
+<iframe class="pdf-viewer" src="{{ note.embed_url | escape }}"
+  title="{{ note.title | escape }} by {{ note.author | escape }}" allow="fullscreen" allowfullscreen loading="lazy">
+</iframe>
+<p class="pdf-direct-link"><a href="{{ note.embed_url | remove: '/embed' | escape }}" target="_blank"
+    rel="noopener">Open the full document on Papermark<span class="visually-hidden"> (new tab)</span></a> if the
+  embedded viewer does not load.</p>
+{% else %}
+<p class="preview-notice">Local preview: the public concept-note PDF is awaiting author confirmation.</p>
+{% endif %}

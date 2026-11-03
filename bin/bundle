@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+set -eu
+cd "$(dirname "$0")/.."
+BUNDLER_VERSION="$(sed -n '/BUNDLED WITH/{n;s/ //g;p;}' Gemfile.lock)"
+export BUNDLE_USER_HOME="${BUNDLE_USER_HOME:-$PWD/.bundle}"
+export BUNDLE_PATH="${BUNDLE_PATH:-vendor/bundle}"
+if command -v bundle >/dev/null 2>&1; then
+  exec bundle "_${BUNDLER_VERSION}_" "$@"
+fi
+USER_BUNDLE="$(ruby -e 'require "rubygems"; print File.join(Gem.user_dir, "bin", "bundle")')"
+if [ -x "$USER_BUNDLE" ]; then
+  exec "$USER_BUNDLE" "_${BUNDLER_VERSION}_" "$@"
+fi
+echo "Install Bundler first: gem install --user-install bundler:$BUNDLER_VERSION" >&2
+exit 1
