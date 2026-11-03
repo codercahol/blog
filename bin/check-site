@@ -22,7 +22,7 @@ root = Path(__file__).resolve().parent.parent / "_site"
 assert not any(path.is_dir() and path.name.isdigit() for path in root.iterdir()), "Numbered snapshots in publishing build"
 assert not (root / "_reference").exists(), "Private reference archive in publishing build"
 assert not (root / "codex_instructions").exists(), "Local instructions in publishing build"
-assert {file.relative_to(root).as_posix() for file in root.rglob("*.html")} == {"index.html", "BiTSconceptnote/index.html", "404.html"}, "Unexpected extra pages"
+assert {file.relative_to(root).as_posix() for file in root.rglob("*.html")} == {"index.html", "about/index.html", "BiTSconceptnote/index.html", "BiTSpitch/index.html", "404.html"}, "Unexpected extra pages"
 checked = 0
 for file in root.rglob("*.html"):
     page = Page()

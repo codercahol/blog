@@ -16,11 +16,12 @@ materials testing. Jekyll with local styles and project tabs; GitHub Pages hosti
 ## Public content
 
 - `index.html`: masthead, headline, and separate editable project panels.
+- `about.html`: biography placeholder at `/about/`, linked from the masthead.
 - `BiTSconceptnote.html`: stable `/BiTSconceptnote` destination.
 - `_layouts/personal.html`, `assets/css/personal.css`: shared presentation.
 - `assets/css/homepage.css`, `assets/js/project-tabs.js`: homepage layout and accessible tabs.
 - `assets/fonts/`: self-hosted Literata font and its redistribution license.
-- The homepage links only to email, GitHub, LinkedIn, and the concept note.
+- The homepage links to About, email, GitHub, LinkedIn, and the concept note.
 - Secondary pages and legacy route pages are removed on this branch.
 - `404.html`: matching error page.
 
@@ -38,26 +39,20 @@ by a push: the existing workflow deploys `main` or an explicitly dispatched run.
 ## Earlier material
 
 Historical references and earlier website iterations are preserved on
-`iterative-multi-view`. This branch builds only the homepage, concept note,
+`iterative-multi-view`. This branch builds only the homepage, About, concept note,
 and error page. Local drafts and handoff notes are excluded from public output.
 
 ## Concept-note release / updates
 
-The confirmed public PDF is still missing. Development displays a pending-document
-notice; production builds fail rather than publish that notice.
+The concept note uses the author-supplied Papermark embed. Its URL, title, author,
+and confirmation flag live in `_data/concept_note.yml`. Production requires
+`confirmed: true` and a valid `https://app.papermark.com/view/<id>/embed` URL.
 
-1. Obtain the author's confirmed public release. Do not substitute an application
-   PDF or annotated draft.
-2. Add the PDF under `assets/documents/` with a new versioned filename each
-   release, e.g. `cmm-concept-note-YYYY-MM-DD.pdf`. Never overwrite an old asset.
-3. Update `_data/concept_note.yml`: `confirmed: true`, root-relative `pdf` URL,
-   actual title, and version/date if supplied by the document. Leave unknowns blank.
-4. Run `bin/check` and `JEKYLL_ENV=production bin/build`. Verify desktop/mobile,
-   direct navigation and refresh at `/BiTSconceptnote`, inline viewing, Open PDF,
-   Download PDF, and fallback links before release.
-5. After deployment, check the exact domain address signed out. A trailing-slash
-   redirect is acceptable. Confirm the asset returns `application/pdf` and intended
-   bytes; the download link uses the same-origin HTML download attribute.
+To replace the document, update `embed_url` to the confirmed public release.
+Keep title, version, and date consistent with the document; leave unknowns blank.
+Run `bin/check` and `JEKYLL_ENV=production bin/build`, then verify the embedded
+viewer, fullscreen action, and fallback link at `/BiTSconceptnote/`.
+The fallback opens the document directly on Papermark in a new tab.
 
 Do not place confidential drafts in public asset directories. Reference and local
 instruction directories remain excluded from the generated site if restored.
