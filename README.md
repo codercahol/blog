@@ -10,8 +10,9 @@ materials testing. Jekyll with local styles and project tabs; GitHub Pages hosti
 - `bin/serve`: preview at http://127.0.0.1:4000.
 - `bin/check`: whitespace check and development build.
 - `JEKYLL_ENV=production bin/build`: release build.
-- Source: `codercahol/blog`; publishing branch: `streamlined-publish`.
-- Existing Pages workflow deploys pushes to `main`.
+- Source: `codercahol/blog`; publishing branch: `master`.
+- The Pages workflow deploys pushes to `master`, the branch allowed by the
+  `github-pages` deployment environment.
 
 ## Public content
 
@@ -32,9 +33,10 @@ manufacturing headline. Numbered snapshots and version navigation
 are saved on the separate `iterative-multi-view` branch and are absent here.
 
 Run `bin/check` for the development build and local-link checks, then
-`JEKYLL_ENV=production bin/build` for the release build. The concept-note PDF
-requirement below must be resolved before publishing. This branch is not deployed
-by a push: the existing workflow deploys `main` or an explicitly dispatched run.
+`JEKYLL_ENV=production bin/build` for the release build. The concept-note release
+requirement below must be satisfied before publishing. Merge updates into `master`
+to deploy. Manual workflow runs must also use `master` to satisfy the deployment
+environment's branch rule.
 
 ## Earlier material
 
